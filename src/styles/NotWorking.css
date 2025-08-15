@@ -1,0 +1,58 @@
+.NotWorking {
+    padding: 80px 100px;
+}
+
+.working-head {
+    font-size: 84px;
+    max-width: 872px;
+    line-height: 88px;
+    font-weight: 600;
+}
+
+.working-head span,
+#work-grad {
+    background: -webkit-linear-gradient(right, #D6B0BC, #7053FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.grad-line {
+    background: linear-gradient(to bottom, #FFFFFF00, #FFFFFF35);
+    margin: 50px 0px;
+    width: 5px;
+    height: 450px;
+}
+
+.working-head.working-two {
+    max-width: 943px;
+    font-size: 48px;
+    line-height: 48px;
+}
+
+.not-working-block {
+    background: linear-gradient(to top, #141414, #0E0E0E);
+    margin: 50px auto 50px auto;
+    max-width: 1090px;
+    height: 600px;
+    border-radius: 36px;
+    padding: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.not-working-block p {
+    font-size: 128px;
+    font-weight: 500;
+    line-height: 128px;
+    letter-spacing: -3%;
+    background: -webkit-linear-gradient(right, #D6B0BC, #7053FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+}
+
+#bottom-head {
+    padding-top: 150px;
+}
