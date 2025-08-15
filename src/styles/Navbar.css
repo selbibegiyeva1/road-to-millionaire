@@ -1,0 +1,70 @@
+.Navbar {
+    position: absolute;
+    width: 100%;
+    padding: 0px 100px;
+}
+
+nav {
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 82px;
+    max-width: 1321px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    z-index: 2;
+    gap: 15px;
+    font-size: 18px;
+}
+
+.Navbar ul {
+    display: flex;
+    align-items: center;
+    z-index: 2;
+    gap: 38px;
+}
+
+.Navbar ul li a {
+    color: #888888;
+    position: relative;
+    font-weight: 500;
+    transition: 0.3s;
+
+    &:hover {
+        color: white;
+    }
+}
+
+.Navbar ul li a:hover::before {
+    background-color: white;
+    width: 100%;
+}
+
+.Navbar ul li a::before {
+    content: "";
+    position: absolute;
+    background-color: #888888;
+    bottom: -10px;
+    width: 0%;
+    height: 1.2px;
+    transition: 0.3s;
+}
+
+.right span {
+    margin-right: 25px;
+    font-weight: 500;
+}
+
+.wait {
+    color: black;
+    background-color: white;
+    font-weight: 550;
+    padding: 12px 20px;
+    border-radius: 100px;
+    font-size: 18px;
+}

@@ -1,0 +1,79 @@
+.Hero {
+    background: url("/hero.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+    position: relative;
+    padding: 180px 100px 80px 100px;
+}
+
+.heroBlock {
+    background: linear-gradient(to top, #141414, #0E0E0E);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    margin: 0px auto 0px auto;
+    border: 1px solid #FFFFFF33;
+    border-radius: 25px;
+    gap: 65px;
+    padding: 125px 75px;
+}
+
+.sub-head {
+    color: #A594FD;
+    background-color: #FFFFFF1A;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    font-weight: 400;
+    box-shadow: 2px 2px 4px rgb(0, 0, 0, 0.2);
+    border: 1px solid #FFFFFF33;
+    padding: 10px 20px;
+    letter-spacing: -1%;
+    border-radius: 20px;
+    line-height: 24px;
+    gap: 10px;
+}
+
+.heading {
+    font-weight: 700;
+    color: #F1F1EF;
+    font-size: 72px;
+    max-width: 504px;
+    letter-spacing: -2%;
+    line-height: 70px;
+    margin: 35px 0px 30px 0px;
+}
+
+.desc {
+    color: #79787B;
+    max-width: 420px;
+    line-height: 1.5em;
+    font-size: 18px;
+    letter-spacing: -1%;
+}
+
+.herowait {
+    background-color: white;
+    display: flex;
+    width: fit-content;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin-top: auto;
+    letter-spacing: -1%;
+    margin-top: 30px;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 500;
+    box-shadow: 2px 2px 4px rgb(0, 0, 0, 0.2);
+}
+
+.heroImg {
+    background-color: #212121;
+    width: 600px;
+    height: 525px;
+    border-radius: 25px;
+    box-shadow: 2px 2px 4px rgb(0, 0, 0, 0.2);
+}

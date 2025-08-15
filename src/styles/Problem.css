@@ -1,0 +1,189 @@
+.Problem {
+    padding: 80px 100px;
+}
+
+.problemBlock {
+    margin: 0px auto 0px auto;
+    max-width: 1321px;
+}
+
+.blockSub {
+    font-size: 25px;
+    font-weight: 500;
+    color: #A594FD;
+}
+
+.blockHead {
+    font-size: 72px;
+    font-weight: 600;
+    max-width: 1000px;
+    line-height: 72px;
+    margin-top: 20px;
+    letter-spacing: -3%;
+}
+
+.problemGrid {
+    display: grid;
+    margin-top: 50px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto 670px;
+    gap: 40px;
+}
+
+.issue {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    background: linear-gradient(to top, #141414, #0E0E0E);
+    padding: 40px;
+    border-radius: 15px;
+}
+
+.issue .desc {
+    font-size: 18px;
+    max-width: 440px;
+    letter-spacing: -1%;
+}
+
+.range-input {
+    border: none;
+    outline: none;
+    color: white;
+    background: #474747;
+    padding: 10px;
+    font-weight: 500;
+    border-radius: 8px;
+    font-size: 17px;
+}
+
+.range-slider {
+    position: relative;
+}
+
+.slider {
+    height: 8px;
+    border-radius: 5px;
+    background: linear-gradient(to right, #D6B0BC 0%, #7053FF 50%, #474747 50%, #474747 100%);
+    outline: none;
+    -webkit-appearance: none;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 26px;
+    width: 48px;
+    background: #765DF3;
+    border-radius: 36px;
+    cursor: pointer;
+    border: 3px solid #FFFFFF;
+}
+
+.issue:nth-child(2) svg {
+    position: absolute;
+    max-width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.issueGrad {
+    font-size: 35px;
+    font-weight: 500;
+    line-height: 42px;
+    max-width: 544px;
+}
+
+.issueGrad span,
+.issueHead span {
+    background: -webkit-linear-gradient(right, #D6B0BC, #7053FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.gridHead {
+    font-size: 38px;
+    max-width: 430px;
+    font-weight: 600;
+    letter-spacing: -3%;
+    line-height: 46px;
+}
+
+.range div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.rangeInc p:nth-child(1) {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.rangeStats p {
+    color: #FFFFFF99;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.range input[type="range"] {
+    width: 100%;
+}
+
+.reality {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: white;
+    border: 6px solid black;
+    font-size: 17px;
+    font-weight: 500;
+    padding: 15px 30px;
+    border-radius: 100px;
+}
+
+.buttonBorder {
+    padding: 3px;
+    margin-bottom: 30px;
+    border-radius: 100px;
+    background: linear-gradient(#A594FD, #62589700, #A594FD);
+    width: fit-content;
+}
+
+.issue:nth-child(3) {
+    grid-column: span 2;
+}
+
+.issueSub {
+    color: #A594FD;
+    font-size: 18px;
+}
+
+.issueHead {
+    z-index: 2;
+    margin-top: 25px;
+    font-size: 60px;
+    font-weight: 600;
+    max-width: 720px;
+    line-height: 60px;
+}
+
+.issueHead.issueHeadTwo {
+    max-width: 804px;
+}
+
+.issue.ellipse svg {
+    position: absolute;
+    right: 0%;
+    top: 0%;
+}
+
+.reality-results {
+    color: #A594FD;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-size: 82px;
+    font-weight: 500;
+}
