@@ -15,7 +15,7 @@ function Hero() {
               <path d="M14.5 12C14.5 13.3807 13.3807 14.5 12 14.5C13.3807 14.5 14.5 15.6193 14.5 17C14.5 15.6193 15.6193 14.5 17 14.5C15.6193 14.5 14.5 13.3807 14.5 12Z" stroke="#A594FD" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </div>
-          <p className="heading">Stop working hard - it's time to work smart</p>
+          <p className="heading">Stop working hard - it's time to work smart.</p>
           <p className="desc">Our AI platform builds a personalized strategy with daily tasks to lead you to $1,000,000.</p>
           <a href="#" className='wait herowait'>Join to Wait List</a>
         </div>
