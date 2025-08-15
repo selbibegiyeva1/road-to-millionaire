@@ -148,7 +148,7 @@ function Problem() {
             <p className="gridHead">
               {yearsResult !== null
                 ? `Your current path to $1,000,000 will take roughly:`
-                : 'Click “See the reality” to calculate'}
+                : 'At your current pace, reaching $1,000,000 will take:'}
             </p>
 
             <div className="reality-results" style={yearsResult !== null ? { display: "flex" } : { display: "none" }}>
