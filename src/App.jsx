@@ -9,6 +9,7 @@ import Hero from './blocks/Hero';
 import Problem from './blocks/Problem';
 import NotWorking from './blocks/NotWorking';
 import Solution from './blocks/Solution';
+import HowItWorks from './blocks/HowItWorks';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Problem />
       <NotWorking />
       <Solution />
+      <HowItWorks />
     </div>
   )
 }

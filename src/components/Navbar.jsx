@@ -20,7 +20,7 @@ function Navbar() {
                 <ul>
                     <li><a href="#problem">Problem</a></li>
                     <li><a href="#solution">Solution</a></li>
-                    <li><a href="#">How it works</a></li>
+                    <li><a href="#howitworks">How it works</a></li>
                 </ul>
 
                 {/* right */}
