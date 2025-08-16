@@ -8,6 +8,7 @@ import Slider from './components/Slider';
 import Hero from './blocks/Hero';
 import Problem from './blocks/Problem';
 import NotWorking from './blocks/NotWorking';
+import Solution from './blocks/Solution';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Slider />
       <Problem />
       <NotWorking />
+      <Solution />
     </div>
   )
 }
