@@ -1,0 +1,75 @@
+.Solution {
+    padding: 80px 100px;
+}
+
+.solutionBlock {
+    margin: 0px auto 0px auto;
+    max-width: 1321px;
+}
+
+.blockHead.solutionHead {
+    max-width: 600px;
+}
+
+.solutionGrid {
+    columns: 2;
+    column-gap: 33px;
+    margin-top: 50px;
+}
+
+.solutionGrid div {
+    background: #121212;
+    break-inside: avoid;
+    border-radius: 36px;
+    margin-bottom: 33px;
+    padding: 50px;
+    height: 372.6666564941406px;
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 48px;
+}
+
+.solutionGrid div p {
+    opacity: 40%;
+    color: white;
+}
+
+.solutionGrid div:nth-child(1) p,
+.solutionGrid div p span,
+.solutionGrid2 div span {
+    background: -webkit-linear-gradient(right, #D6B0BC, #7053FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: initial;
+}
+
+.solutionGrid div:nth-child(4) {
+    height: 605px;
+}
+
+.solutionGrid div:nth-child(5) {
+    height: 560px;
+}
+
+.solutionGrid2 {
+    display: grid;
+    max-width: 1321px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin: auto;
+}
+
+.solutionGrid2 div {
+    background: #121212;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 24px;
+    line-height: 28px;
+    padding: 50px 45px;
+    gap: 25px;
+    font-size: 28px;
+    font-weight: 600;
+}
