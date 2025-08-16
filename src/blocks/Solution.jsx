@@ -5,7 +5,7 @@ import "../styles/Solution.css";
 
 function Solution() {
     return (
-        <div className='Solution'>
+        <div className='Solution' id='solution'>
             <div className="solutionBlock">
                 <p className="blockSub">Our Solution</p>
                 <p className="blockHead solutionHead">Now You Play by Your Own Rules</p>

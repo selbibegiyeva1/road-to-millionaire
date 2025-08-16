@@ -18,8 +18,8 @@ function Navbar() {
 
                 {/* links */}
                 <ul>
-                    <li><a href="#">Problem</a></li>
-                    <li><a href="#">Solution</a></li>
+                    <li><a href="#problem">Problem</a></li>
+                    <li><a href="#solution">Solution</a></li>
                     <li><a href="#">How it works</a></li>
                 </ul>
 

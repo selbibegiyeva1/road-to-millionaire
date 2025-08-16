@@ -72,7 +72,7 @@ function Problem() {
   };
 
   return (
-    <div className='Problem'>
+    <div className='Problem' id='problem'>
       <div className="problemBlock">
         <p className="blockSub">Problem</p>
         <p className="blockHead">What’s the cost of working without a clear strategy?</p>

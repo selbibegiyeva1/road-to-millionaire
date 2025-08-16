@@ -7,4 +7,5 @@
   list-style: none;
   box-sizing: border-box;
   font-family: "Geist", sans-serif;
+  scroll-behavior: smooth;
 }
