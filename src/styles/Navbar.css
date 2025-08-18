@@ -16,6 +16,7 @@ nav {
 .logo {
     display: flex;
     align-items: center;
+    width: fit-content;
     font-weight: 600;
     z-index: 2;
     gap: 15px;
@@ -63,6 +64,9 @@ nav {
 .wait {
     color: black;
     background-color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
     font-weight: 550;
     padding: 12px 20px;
     border-radius: 100px;

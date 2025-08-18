@@ -1,0 +1,141 @@
+.JoinWishlist {
+    position: fixed;
+    opacity: 0;
+    pointer-events: none;
+    overflow: auto;
+    box-shadow: 2px 2px 4px rgb(0, 0, 0, 0.5);
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background: rgb(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    z-index: 10;
+    padding: 120px 80px;
+    transition: 0.3s;
+}
+
+.JoinWishlist.show {
+    pointer-events: all;
+    opacity: 1;
+}
+
+.JoinWishlist::-webkit-scrollbar {
+    width: 0px;
+}
+
+.JoinWishlist form {
+    background: linear-gradient(to top, #141414, #0E0E0E);
+    padding: 60px 50px;
+    border-radius: 36px;
+    width: 578px;
+    transition: 0.3s;
+    transform: translateY(15px);
+    margin: auto;
+}
+
+.JoinWishlist form.popForm {
+    transform: translateY(0px);
+}
+
+.form-head {
+    margin: 50px 0px 25px 0px;
+    font-size: 42px;
+    line-height: 46px;
+    font-weight: 600;
+}
+
+.form-head span {
+    background: -webkit-linear-gradient(right, #D6B0BC, #7053FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.form-desc {
+    color: #79787B;
+    font-size: 18px;
+}
+
+.formInput span {
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.formInput {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.formInput input,
+.formInput select,
+.JoinWishlist form button {
+    -webkit-appearance: none;
+    color: white;
+    background: none;
+    outline: none;
+    border: 1px solid #FFFFFF33;
+    padding: 20px;
+    border-radius: 16px;
+    font-size: 16px;
+    width: 100%;
+}
+
+.formInput select option {
+    background-color: #141414;
+}
+
+.formInput div {
+    position: relative;
+}
+
+.formInput div i {
+    position: absolute;
+    color: #FFFFFF59;
+    top: 50%;
+    right: 10px;
+    transform: translate(-50%, -50%);
+    display: flex;
+    font-size: 26px;
+}
+
+.JoinWishlist form button {
+    border: none;
+    color: black;
+    cursor: pointer;
+    background-color: white;
+    width: 100%;
+    border-radius: 100px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.terms {
+    line-height: 20px;
+    font-weight: 500;
+}
+
+.terms a {
+    color: white;
+    text-decoration: underline;
+}
+
+.close {
+    position: absolute;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    background: linear-gradient(to top, #141414, #0E0E0E);
+    border: 1px solid #FFFFFF33;
+    padding: 10px;
+    border-radius: 50%;
+    font-size: 25px;
+    top: 0%;
+    right: 0%;
+    margin: 40px;
+}
+
+.close i {
+    color: white;
+    display: flex;
+}
