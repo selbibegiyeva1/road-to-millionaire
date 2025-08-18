@@ -11,6 +11,7 @@ import NotWorking from './blocks/NotWorking';
 import Solution from './blocks/Solution';
 import HowItWorks from './blocks/HowItWorks';
 import YourRight from './blocks/YourRight';
+import YourJourney from './blocks/YourJourney';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
       <Solution />
       <HowItWorks />
       <YourRight />
+      <YourJourney />
     </div>
   )
 }
