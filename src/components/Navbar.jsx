@@ -3,7 +3,7 @@ import React from 'react';
 // CSS
 import "../styles/Navbar.css";
 
-function Navbar() {
+function Navbar({ click }) {
     return (
         <div className='Navbar'>
             <nav>
@@ -24,9 +24,9 @@ function Navbar() {
                 </ul>
 
                 {/* right */}
-                <div className="right" style={{zIndex: 2}}>
+                <div className="right" style={{ zIndex: 2 }}>
                     <span>EN</span>
-                    <a href="#" className='wait'>Join to Wait List</a>
+                    <button className='wait' onClick={click}>Join to Wait List</button>
                 </div>
             </nav>
         </div>

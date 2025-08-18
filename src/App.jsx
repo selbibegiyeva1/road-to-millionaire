@@ -4,6 +4,7 @@ import './App.css';
 import Navbar from './components/Navbar';
 import Slider from './components/Slider';
 import Footer from './components/Footer';
+import JoinWishlist from './components/JoinWishlist';
 
 // Blocks
 import Hero from './blocks/Hero';
@@ -13,11 +14,17 @@ import Solution from './blocks/Solution';
 import HowItWorks from './blocks/HowItWorks';
 import YourRight from './blocks/YourRight';
 import YourJourney from './blocks/YourJourney';
+import { useState } from 'react';
 
 function App() {
+  const [wish, setWish] = useState(false);
+
+  const wishList = () => setWish(!wish);
+
   return (
     <div className="App">
-      <Navbar />
+      <JoinWishlist effect={wish} click={wishList} />
+      <Navbar click={wishList} />
       <Hero />
       <Slider />
       <Problem />
@@ -25,7 +32,7 @@ function App() {
       <Solution />
       <HowItWorks />
       <YourRight />
-      <YourJourney />
+      <YourJourney click={wishList} />
       <Footer />
       <center>
         <span className='bottom-logo'>Road To Millionaire</span>
