@@ -19,6 +19,7 @@
     background: linear-gradient(to top, #141414, #0E0E0E);
     padding: 50px 75px;
     border-radius: 36px;
+    gap: 50px;
     display: flex;
     align-items: center;
     justify-content: space-between;
