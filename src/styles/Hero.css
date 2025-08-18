@@ -2,7 +2,7 @@
     background: url("/hero.png");
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: top;
+    background-position: bottom;
     position: relative;
     padding: 180px 100px 80px 100px;
 }
