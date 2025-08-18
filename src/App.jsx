@@ -3,6 +3,7 @@ import './App.css';
 // Components
 import Navbar from './components/Navbar';
 import Slider from './components/Slider';
+import Footer from './components/Footer';
 
 // Blocks
 import Hero from './blocks/Hero';
@@ -25,6 +26,10 @@ function App() {
       <HowItWorks />
       <YourRight />
       <YourJourney />
+      <Footer />
+      <center>
+        <span className='bottom-logo'>Road To Millionaire</span>
+      </center>
     </div>
   )
 }
