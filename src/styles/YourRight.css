@@ -1,0 +1,55 @@
+.YourRight {
+    padding: 80px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+}
+
+.shape.s-1 {
+    width: 100%;
+}
+
+.shape.s-2 {
+    position: absolute;
+    width: 75%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.shape.s-3 {
+    position: absolute;
+    width: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.right-text {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 0px 80px;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.right-head {
+    font-size: 88px;
+    line-height: 88px;
+    font-weight: 600;
+}
+
+.right-desc {
+    color: #B8BCBC;
+    max-width: 550px;
+    font-size: 20px;
+    margin-top: 25px;
+}

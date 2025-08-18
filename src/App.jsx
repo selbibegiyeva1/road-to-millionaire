@@ -10,6 +10,7 @@ import Problem from './blocks/Problem';
 import NotWorking from './blocks/NotWorking';
 import Solution from './blocks/Solution';
 import HowItWorks from './blocks/HowItWorks';
+import YourRight from './blocks/YourRight';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       <NotWorking />
       <Solution />
       <HowItWorks />
+      <YourRight />
     </div>
   )
 }
