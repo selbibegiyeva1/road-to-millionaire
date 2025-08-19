@@ -25,7 +25,7 @@ function App() {
     <div className="App">
       <JoinWishlist effect={wish} click={wishList} />
       <Navbar click={wishList} />
-      <Hero />
+      <Hero click={wishList} />
       <Slider />
       <Problem />
       <NotWorking />

@@ -3,7 +3,7 @@ import React from 'react';
 // CSS
 import "../styles/Hero.css";
 
-function Hero() {
+function Hero({ click }) {
   return (
     <div className="Hero">
       <div className='heroBlock'>
@@ -17,7 +17,7 @@ function Hero() {
           </div>
           <p className="heading">Stop working hard - it's time to work smart</p>
           <p className="desc">Our AI platform builds a personalized strategy with daily tasks to lead you to $1,000,000.</p>
-          <a href="#" className='wait herowait'>Join to Wait List</a>
+          <button className='wait herowait' onClick={click}>Join to Wait List</button>
         </div>
         <div className='heroImg'></div>
       </div>

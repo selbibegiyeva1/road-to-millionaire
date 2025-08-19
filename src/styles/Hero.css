@@ -55,19 +55,12 @@
 }
 
 .herowait {
-    background-color: white;
     display: flex;
     width: fit-content;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    margin-top: auto;
-    letter-spacing: -1%;
     margin-top: 30px;
     font-size: 16px;
     line-height: 24px;
     font-weight: 500;
-    box-shadow: 2px 2px 4px rgb(0, 0, 0, 0.2);
 }
 
 .heroImg {

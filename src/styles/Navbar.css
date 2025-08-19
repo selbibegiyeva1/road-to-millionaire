@@ -9,7 +9,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 82px;
+    height: 90px;
     max-width: 1321px;
 }
 
@@ -62,7 +62,6 @@ nav {
 }
 
 .wait {
-    color: black;
     background-color: white;
     border: none;
     outline: none;
@@ -71,4 +70,9 @@ nav {
     padding: 12px 20px;
     border-radius: 100px;
     font-size: 18px;
+    transition: 0.3s;
+
+    &:hover {
+        background-color: #cfcfcf;
+    }
 }
