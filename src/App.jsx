@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 import './App.css';
 
 // Components
@@ -20,6 +22,20 @@ function App() {
   const [wish, setWish] = useState(false);
 
   const wishList = () => setWish(!wish);
+
+  useEffect(() => {
+    const handleEsc = (event) => {
+      if (event.key === "Escape" && wish) {
+        setWish(false);
+      }
+    };
+
+    window.addEventListener("keydown", handleEsc);
+
+    return () => {
+      window.removeEventListener("keydown", handleEsc);
+    };
+  }, [wish]);
 
   return (
     <div className="App">
