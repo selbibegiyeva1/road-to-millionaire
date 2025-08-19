@@ -71,3 +71,13 @@ footer {
     font-weight: 500;
     font-size: 18px;
 }
+
+.footer-img {
+    display: flex;
+    margin: 80px auto auto auto;
+    max-width: 1805px;
+}
+
+.footer-img img {
+    width: 100%;
+}
