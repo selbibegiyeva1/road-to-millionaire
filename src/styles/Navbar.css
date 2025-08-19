@@ -57,8 +57,13 @@ nav {
     transition: 0.3s;
 }
 
+.right {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
 .right span {
-    margin-right: 25px;
     font-weight: 500;
 }
 
@@ -78,18 +83,42 @@ nav {
     }
 }
 
+.sidebar-toggle {
+    border: none;
+    outline: none;
+    background: none;
+    display: none;
+    cursor: pointer;
+}
+
+.sidebar-toggle i {
+    color: white;
+    display: flex;
+    font-size: 24px;
+}
+
 @media(max-width: 1230px) {
     .Navbar ul {
         display: none;
     }
 
-    .right {
+    .right span, .right .wait {
         display: none;
+    }
+
+    .sidebar-toggle {
+        display: flex;
     }
 }
 
 @media(max-width: 1024px) {
     .Navbar {
         padding: 0px 50px;
+    }
+}
+
+@media(max-width: 525px) {
+    .Navbar {
+        padding: 0px 25px;
     }
 }

@@ -4,6 +4,7 @@ import './App.css';
 
 // Components
 import Navbar from './components/Navbar';
+import Sidebar from './components/Sidebar';
 import Slider from './components/Slider';
 import Footer from './components/Footer';
 import JoinWishlist from './components/JoinWishlist';
@@ -20,8 +21,10 @@ import { useState } from 'react';
 
 function App() {
   const [wish, setWish] = useState(false);
+  const [sidebar, setSidebar] = useState(false);
 
   const wishList = () => setWish(!wish);
+  const sideBar = () => setSidebar(!sidebar);
 
   useEffect(() => {
     const handleEsc = (event) => {
@@ -39,9 +42,10 @@ function App() {
 
   return (
     <div className="App">
+      <Sidebar sidebar={sideBar} show={sidebar} click={wishList} />
       <JoinWishlist effect={wish} click={wishList} />
-      <Navbar click={wishList} />
-      <Hero click={wishList} />
+      <Navbar click={wishList} sidebar={sideBar} />
+      <Hero click={wishList} sidebar={sideBar} />
       <Slider />
       <Problem />
       <NotWorking />
