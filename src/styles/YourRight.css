@@ -1,5 +1,5 @@
 .YourRight {
-    padding: 80px 40px;
+    padding: 80px 50px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -34,7 +34,7 @@
     justify-content: center;
     flex-direction: column;
     text-align: center;
-    padding: 0px 80px;
+    padding: 0px 25px;
     width: 100%;
     top: 50%;
     left: 50%;
@@ -52,4 +52,52 @@
     max-width: 550px;
     font-size: 20px;
     margin-top: 25px;
+}
+
+@media(max-width: 1550px) {
+    .right-head {
+        font-size: 72px;
+    }
+}
+
+@media(max-width: 1300px) {
+    .right-head {
+        font-size: 50px;
+        line-height: 50px;
+    }
+}
+
+@media(max-width: 1200px) {
+    .shape.s-3 {
+        display: none;
+    }
+
+    .right-desc {
+        max-width: 450px;
+    }
+}
+
+@media(max-width: 700px) {
+    .YourRight {
+        overflow: hidden;
+        padding: 80px 0px;
+    }
+
+    .shape.s-1 {
+        min-width: 100%;
+    }
+
+    .shape.s-2 {
+        min-width: 75%;
+    }
+}
+
+@media(max-width: 600px) {
+    .right-head {
+        font-size: 40px;
+    }
+
+    .right-desc {
+        font-size: 16px;
+    }
 }

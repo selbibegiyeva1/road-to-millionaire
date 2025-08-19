@@ -50,9 +50,6 @@ function App() {
       <YourRight />
       <YourJourney click={wishList} />
       <Footer />
-      <center>
-        <span className='bottom-logo'>Road To Millionaire</span>
-      </center>
     </div>
   )
 }

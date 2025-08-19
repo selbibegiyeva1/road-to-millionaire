@@ -68,8 +68,56 @@
     text-align: center;
     border-radius: 24px;
     line-height: 28px;
-    padding: 50px 45px;
+    padding: 50px 35px;
     gap: 25px;
     font-size: 28px;
     font-weight: 600;
+}
+
+@media(max-width: 1440px) {
+    .solutionGrid {
+        columns: 1;
+    }
+
+    .solutionGrid div {
+        margin-bottom: 20px;
+    }
+}
+
+@media(max-width: 1150px) {
+    .solutionGrid2 {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .solutionGrid2 div p {
+        max-width: 400px;
+    }
+}
+
+@media(max-width: 1024px) {
+    .Solution {
+        padding: 80px 50px;
+    }
+}
+
+@media(max-width: 710px) {
+
+    .solutionGrid div,
+    .solutionGrid div:nth-child(5),
+    .solutionGrid div:nth-child(4) {
+        height: initial;
+    }
+}
+
+@media(max-width: 525px) {
+    .Solution {
+        padding: 80px 25px;
+    }
+
+    .solutionGrid div {
+        font-size: 32px;
+        line-height: 32px;
+        padding: 30px;
+    }
 }

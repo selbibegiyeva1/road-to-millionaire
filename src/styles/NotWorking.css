@@ -45,6 +45,7 @@
     padding: 80px 80px;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .not-working-block p {
@@ -108,4 +109,98 @@
 
 #bottom-head {
     padding-top: 150px;
+}
+
+@media(max-width: 1560px) {
+
+    .not-work-point.point-one,
+    .not-work-point.point-two,
+    .not-work-point.point-three,
+    .not-work-point.point-four,
+    .not-work-point.point-five,
+    .not-work-point.point-six {
+        top: initial;
+        bottom: initial;
+        right: initial;
+        left: initial;
+        max-width: initial;
+    }
+
+    .not-work-point {
+        position: initial;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .not-work-point span {
+        width: 392px;
+    }
+
+    .not-working-block {
+        flex-direction: column;
+        justify-content: initial;
+        gap: 20px;
+        align-items: initial;
+        margin: 50px auto 50px auto;
+        width: 100%;
+    }
+
+    .not-work-head {
+        height: 520px;
+    }
+
+    .not-working-block p {
+        font-size: 72px;
+    }
+}
+
+@media(max-width: 1100px) {
+    .working-head {
+        font-size: 62px;
+        line-height: 62px;
+    }
+}
+
+@media(max-width: 1024px) {
+    .NotWorking {
+        padding: 80px 50px;
+    }
+
+    .not-working-block p {
+        line-height: 72.5px;
+    }
+}
+
+@media(max-width: 786px) {
+    .working-head {
+        font-size: 50px;
+        line-height: 50px;
+    }
+}
+
+@media(max-width: 525px) {
+
+    .working-head,
+    .working-head.working-two {
+        font-size: 35px;
+        line-height: 35px;
+    }
+
+    .not-working-block p {
+        font-size: 54px;
+        line-height: 54px;
+    }
+
+    .not-work-head {
+        height: 400px;
+    }
+
+    .not-work-point span {
+        font-size: 17px;
+    }
+
+    .NotWorking {
+        padding: 80px 25px;
+    }
 }
