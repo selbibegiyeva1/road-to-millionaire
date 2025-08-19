@@ -3,7 +3,9 @@ import React from 'react';
 // CSS
 import "../styles/Navbar.css";
 
-function Navbar({ click }) {
+import { BsFillGridFill } from "react-icons/bs";
+
+function Navbar({ click, sidebar }) {
     return (
         <div className='Navbar'>
             <nav>
@@ -26,9 +28,13 @@ function Navbar({ click }) {
 
                 {/* right */}
                 <div className="right" style={{ zIndex: 2 }}>
+                    <button className='sidebar-toggle' onClick={sidebar}>
+                        <i><BsFillGridFill /></i>
+                    </button>
                     <span>EN</span>
                     <button className='wait' onClick={click}>Join to Wait List</button>
                 </div>
+
             </nav>
         </div>
     )
