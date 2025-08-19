@@ -76,3 +76,19 @@ nav {
         background-color: #cfcfcf;
     }
 }
+
+@media(max-width: 1100px) {
+    .Navbar ul {
+        display: none;
+    }
+
+    .right {
+        display: none;
+    }
+}
+
+@media(max-width: 1024px) {
+    .Navbar {
+        padding: 0px 50px;
+    }
+}

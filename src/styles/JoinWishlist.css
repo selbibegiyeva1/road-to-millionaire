@@ -137,10 +137,22 @@
     font-size: 25px;
     top: 0%;
     right: 0%;
-    margin: 40px;
+    margin: 30px;
 }
 
 .close i {
     color: white;
     display: flex;
+}
+
+@media(max-width: 1024px) {
+    .JoinWishlist {
+        padding: 100px 50px;
+    }
+}
+
+@media(max-width: 700px) {
+    .JoinWishlist form {
+        width: 100%;
+    }
 }

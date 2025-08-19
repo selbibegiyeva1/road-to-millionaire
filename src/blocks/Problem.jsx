@@ -84,7 +84,7 @@ function Problem() {
               <p className="desc">You’re on the default path — but at what cost? Take 30 seconds to see how many years it’s costing you.</p>
               <br /><br />
               <div className='range'>
-                <div className='rangeInc' style={{ marginBottom: 20 }}>
+                <div className='rangeInc'>
                   <p>Monthly Income, USD</p>
                   <input
                     type="number"
@@ -113,7 +113,7 @@ function Problem() {
               </div>
               <br />
               <div className='range'>
-                <div className='rangeInc' style={{ marginBottom: 20 }}>
+                <div className='rangeInc'>
                   <p>Monthly Expenses, USD</p>
                   <input
                     type="number"

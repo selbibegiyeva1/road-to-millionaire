@@ -49,6 +49,7 @@
 .range-input {
     border: none;
     outline: none;
+    width: fit-content;
     color: white;
     background: #474747;
     padding: 10px;
@@ -115,6 +116,10 @@
     justify-content: space-between;
 }
 
+.rangeInc {
+    margin-bottom: 20px;
+}
+
 .rangeInc p:nth-child(1) {
     font-size: 20px;
     font-weight: 500;
@@ -174,6 +179,7 @@
 
 .issue.ellipse svg {
     position: absolute;
+    height: 100%;
     right: 0%;
     top: 0%;
 }
@@ -183,7 +189,92 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
     height: 100%;
     font-size: 82px;
+    line-height: 82px;
     font-weight: 500;
+}
+
+@media(max-width: 1100px) {
+    .problemGrid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .issue:nth-child(3) {
+        grid-column: span 1;
+    }
+
+    .issue.ellipse {
+        overflow: hidden;
+        height: initial;
+    }
+
+    .issueHead.issueHeadTwo {
+        margin-top: 100px;
+    }
+
+    .blockHead {
+        font-size: 50px;
+        line-height: 50px;
+    }
+}
+
+@media(max-width: 1024px) {
+    .Problem {
+        padding: 80px 50px;
+    }
+
+    .issue.ellipse svg {
+        top: initial;
+        bottom: 0%;
+    }
+}
+
+@media(max-width: 786px) {
+    .issueHead {
+        font-size: 50px;
+        line-height: 50px;
+    }
+}
+
+@media(max-width: 525px) {
+    .Problem {
+        padding: 80px 25px;
+    }
+
+    .issue {
+        padding: 30px;
+    }
+
+    .issueHead,
+    .issueGrad {
+        font-size: 32px;
+        line-height: 32px;
+    }
+
+    .gridHead {
+        font-size: 32px;
+        line-height: 34px;
+    }
+
+    .blockHead {
+        font-size: 36px;
+        line-height: 36px;
+    }
+
+    .reality-results {
+        font-size: 62px;
+        line-height: 62px;
+    }
+}
+
+@media(max-width: 500px) {
+    .range div:nth-child(1) {
+        flex-direction: column;
+        align-items: initial;
+        gap: 15px;
+        margin-bottom: 40px;
+    }
 }

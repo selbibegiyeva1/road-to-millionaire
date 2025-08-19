@@ -43,7 +43,7 @@
 }
 
 .work-head {
-    font-size: 29.05px;
+    font-size: 30px;
     line-height: 31.28px;
     font-weight: 500;
     margin-top: 25px;
@@ -201,4 +201,72 @@
 
 .work-moto span {
     color: white;
+}
+
+@media(max-width: 1550px) {
+    .work-moto {
+        font-size: 62px;
+        line-height: 62px;
+    }
+}
+
+@media(max-width: 1150px) {
+    .work {
+        flex-direction: column;
+    }
+
+    .work-box {
+        width: 100%;
+    }
+
+    .work-info {
+        width: 100%;
+    }
+}
+
+@media(max-width: 1024px) {
+    .HowItWorks {
+        padding: 80px 50px;
+    }
+
+    .work {
+        padding: 50px;
+    }
+
+    .work-block-head {
+        font-size: 55px;
+        line-height: 55px;
+    }
+}
+
+@media(max-width: 786px) {
+    .work-moto {
+        font-size: 42px;
+        line-height: 42px;
+    }
+}
+
+@media(max-width: 525px) {
+    .HowItWorks {
+        padding: 80px 25px;
+    }
+
+    .work {
+        padding: 30px;
+    }
+
+    .work-block-head {
+        font-size: 32px;
+        line-height: 34px;
+    }
+
+    .quests div,
+    .work-desc,
+    .work-box-desc {
+        font-size: 16px;
+    }
+
+    .work-points li {
+        grid-template-columns: 95px 1fr;
+    }
 }

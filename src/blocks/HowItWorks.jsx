@@ -7,14 +7,14 @@ function HowItWorks() {
     return (
         <div className='HowItWorks' id='howitworks'>
             <div className="how-it-works-block">
-                <p className="blockSub">Problem</p>
+                <p className="blockSub">How it works</p>
                 <p className="blockHead worksHead">From chaos to a clear plan in three steps</p>
 
                 <div className="works">
 
                     {/* work 1 */}
                     <div className="work">
-                        <div>
+                        <div className='work-info'>
                             <p className='work-block-head'>Deep Diagnostics</p>
                             <p className="work-desc">You don’t fill out a questionnaire—you converse with the AI. Uncover your strengths, resources, and hidden potential to build a solid strategic foundation</p>
                         </div>
@@ -47,7 +47,7 @@ function HowItWorks() {
                     <br />
                     {/* work 2 */}
                     <div className="work">
-                        <div>
+                        <div className='work-info'>
                             <p className='work-block-head'>Daily Progress</p>
                             <p className="work-desc">Your strategy turns into simple daily tasks. You always know the exact step to take today to move closer to your goal</p>
                         </div>
@@ -81,7 +81,7 @@ function HowItWorks() {
 
                     {/* work 3 */}
                     <div className="work">
-                        <div>
+                        <div className='work-info'>
                             <p className='work-block-head'>Choose Your Path</p>
                             <p className="work-desc">Road To Millionaire crafts unique strategies precisely tuned to you. Pick the one that suits you best</p>
                         </div>
