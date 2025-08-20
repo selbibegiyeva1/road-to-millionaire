@@ -65,7 +65,8 @@ header {
     font-weight: 24px;
 }
 
-.side-btns button {
+.side-btns button,
+.side-btns select {
     background: white;
     border: none;
     outline: none;
@@ -79,6 +80,19 @@ header {
 
     &:hover {
         background-color: #cfcfcf;
+    }
+}
+
+.side-btns select {
+    -webkit-appearance: none;
+    color: white;
+    text-align-last: center;
+    background: #111111;
+    border: 1px solid #3C3C3C;
+    margin-bottom: 20px;
+
+    &:hover {
+        background-color: #232323;
     }
 }
 

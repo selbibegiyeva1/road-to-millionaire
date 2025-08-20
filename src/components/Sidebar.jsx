@@ -38,6 +38,11 @@ function Sidebar({ sidebar, show, click }) {
             </div>
 
             <div className="side-btns">
+                <select>
+                    <option value="English - EN">English - EN</option>
+                    <option value="Russian - RU">Russian - RU</option>
+                    <option value="Turkmen - TKM">Turkmen - TKM</option>
+                </select>
                 <button onClick={click}>Join to Wait List</button>
             </div>
         </div>
