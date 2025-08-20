@@ -1,0 +1,148 @@
+.faq-desc-block {
+    padding: 180px 100px 80px 100px;
+}
+
+.faq-desc {
+    max-width: 1321px;
+    background: linear-gradient(to top, #141414, #0E0E0E);
+    padding: 50px;
+    border-radius: 15px;
+    margin: auto;
+}
+
+.faq-desc.-two {
+    background: initial;
+    padding: initial;
+    border-radius: initial;
+}
+
+.faq-head {
+    font-size: 36px;
+    line-height: 40px;
+    font-weight: 600;
+    max-width: 929px;
+    margin: 25px 0px 35px 0px;
+}
+
+.faq-head span {
+    background: -webkit-linear-gradient(right, #D6B0BC, #7053FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.faq-text {
+    font-size: 20px;
+    color: #BDBDBD;
+}
+
+.faq-team {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 36px;
+    max-width: 400px;
+    margin-top: 35px;
+}
+
+.faqs {
+    padding: 80px 100px;
+}
+
+.faq-type {
+    background: -webkit-linear-gradient(right, #D6B0BC, #7053FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 42px;
+    line-height: 36px;
+    font-weight: 600;
+    margin-bottom: 50px;
+}
+
+.faqs ul li {
+    cursor: pointer;
+    padding: 25px 0px;
+    border-top: 1.5px solid #FFFFFF40;
+}
+
+.faqs ul li div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.faqs ul li div p {
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 36px;
+}
+
+.faqs ul li div i {
+    font-size: 25px;
+    display: flex;
+}
+
+.faqs ul li span {
+    display: none;
+    color: #BDBDBD;
+    line-height: 22px;
+    font-weight: 500;
+    margin-top: 25px;
+    max-width: 1015px;
+}
+
+.faqs ul li span.show {
+    display: flex;
+}
+
+@media(max-width: 1024px) {
+    .faq-desc-block {
+        padding: 180px 50px 80px 50px;
+    }
+
+    .faqs {
+        padding: 80px 50px;
+    }
+}
+
+@media(max-width: 786px) {
+    .faq-desc .sub-head {
+        display: none;
+    }
+}
+
+@media(max-width: 525px) {
+    .faq-desc-block {
+        padding: 180px 25px 80px 25px;
+    }
+
+    .faq-desc {
+        padding: 30px;
+    }
+
+    .faqs {
+        padding: 80px 25px;
+    }
+
+    .faq-head {
+        font-size: 32px;
+        line-height: 32px;
+        margin: 0px 0px 35px 0px;
+    }
+
+    .faq-text, .faq-team {
+        font-size: 18px;
+    }
+
+    .faq-team {
+        line-height: 24px;
+    }
+
+    .faq-type {
+        font-size: 28px;
+    }
+
+    .faqs ul li div p {
+        font-size: 20px;
+        line-height: 24px;
+    }
+}

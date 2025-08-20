@@ -6,6 +6,7 @@ import Navbar from './Navbar';
 import "../styles/Sidebar.css";
 
 import { RxCross2 } from "react-icons/rx";
+import { Link } from 'react-router';
 
 function Sidebar({ sidebar, show, click }) {
     return (
@@ -33,7 +34,7 @@ function Sidebar({ sidebar, show, click }) {
                     <li><a href="#problem" onClick={sidebar}>Problem</a></li>
                     <li><a href="#solution" onClick={sidebar}>Solution</a></li>
                     <li><a href="#howitworks" onClick={sidebar}>How it works</a></li>
-                    <li><a href="#" onClick={sidebar}>FAQ</a></li>
+                    <li><Link to="/faq" onClick={sidebar}>FAQ</Link></li>
                 </ul>
             </div>
 
