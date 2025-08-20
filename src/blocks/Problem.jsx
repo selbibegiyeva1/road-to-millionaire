@@ -59,8 +59,7 @@ function Problem() {
     const expense = Number(expenseValue);
 
     if (isNaN(income) || isNaN(expense) || income <= expense) {
-      alert("You're not saving any money. You will never reach $1,000,000 this way.");
-      setYearsResult(null);
+      setYearsResult('Never');
       return;
     }
 
@@ -150,11 +149,18 @@ function Problem() {
                 ? `Your current path to $1,000,000 will take roughly:`
                 : 'At your current pace, reaching $1,000,000 will take:'}
             </p>
-
             <div className="reality-results" style={yearsResult !== null ? { display: "flex" } : { display: "none" }}>
-              <span>{yearsResult} years</span>
+              <span>
+                {yearsResult === 'Never' ? 'Never' : `${yearsResult} years`}
+              </span>
             </div>
-
+            {yearsResult === 'Never' && (
+              <center>
+                <p className='issueGrad'>
+                  Sounds like <span>you need our solution</span>
+                </p>
+              </center>
+            )}
             <div style={{ display: yearsResult !== null ? 'none' : 'flex', flexDirection: "column", zIndex: 2 }}>
               <center>
                 <div className="buttonBorder">
