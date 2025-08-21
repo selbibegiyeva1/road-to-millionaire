@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router";
+import { useEffect } from "react";
 
 import './App.css';
 
@@ -7,6 +8,19 @@ import Faq from './routes/Faq';
 import Home from './routes/Home';
 
 function App() {
+  useEffect(() => {
+    const handleScroll = () => {
+      console.log(`Scrolled: ${window.scrollY}px`);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // cleanup on unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+  
   return (
     <div className="App">
       <Routes>

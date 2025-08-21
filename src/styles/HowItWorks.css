@@ -12,7 +12,14 @@
 }
 
 .works {
-    margin-top: 50px
+    overflow: auto;
+    margin-top: 50px;
+    border-radius: 36px;
+    height: 700px;
+}
+
+.works::-webkit-scrollbar {
+    width: 0px;
 }
 
 .work {
@@ -20,6 +27,9 @@
     padding: 50px 75px;
     border-radius: 36px;
     gap: 50px;
+    height: 700px;
+    top: 0;
+    position: sticky;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -199,10 +209,6 @@
     margin-top: 75px;
 }
 
-.work-moto span {
-    color: white;
-}
-
 @media(max-width: 1550px) {
     .work-moto {
         font-size: 62px;
@@ -213,6 +219,7 @@
 @media(max-width: 1150px) {
     .work {
         flex-direction: column;
+        height: auto;
     }
 
     .work-box {

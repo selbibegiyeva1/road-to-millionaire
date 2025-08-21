@@ -1,14 +1,14 @@
 .App {
-    background-color: black;
-    color: white;
-    overflow: hidden;
-    min-height: 100vh;
+  background-color: black;
+  color: white;
+  overflow: hidden;
+  min-height: 100vh;
 }
 
 .bottom-logo {
-    color: #FFFFFF33;
-    position: relative;
-    font-size: 200px;
-    font-weight: 600;
-    bottom: -75px;
+  color: #FFFFFF33;
+  position: relative;
+  font-size: 200px;
+  font-weight: 600;
+  bottom: -75px;
 }
