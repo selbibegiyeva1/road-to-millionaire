@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 // CSS
 import "../styles/HowItWorks.css";
@@ -112,7 +112,7 @@ function HowItWorks() {
                     </div>
                 </div>
 
-                <p className="work-moto"><span>World changes —</span> and your plan changes with it. Our AI constantly adjusts your roadmap and tasks based on your results and fresh market data.</p>
+                <p className="work-moto">World changes — and your plan changes with it. Our AI constantly adjusts your roadmap and tasks based on your results and fresh market data.</p>
             </div>
         </div>
     )

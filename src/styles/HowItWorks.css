@@ -12,7 +12,8 @@
 }
 
 .works {
-    margin-top: 50px
+    margin-top: 50px;
+    border-radius: 36px;
 }
 
 .work {
@@ -199,10 +200,6 @@
     margin-top: 75px;
 }
 
-.work-moto span {
-    color: white;
-}
-
 @media(max-width: 1550px) {
     .work-moto {
         font-size: 62px;
@@ -213,6 +210,7 @@
 @media(max-width: 1150px) {
     .work {
         flex-direction: column;
+        height: auto;
     }
 
     .work-box {
