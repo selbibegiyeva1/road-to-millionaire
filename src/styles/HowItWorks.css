@@ -12,8 +12,14 @@
 }
 
 .works {
+    overflow: auto;
     margin-top: 50px;
     border-radius: 36px;
+    height: 700px;
+}
+
+.works::-webkit-scrollbar {
+    width: 0px;
 }
 
 .work {
@@ -21,6 +27,9 @@
     padding: 50px 75px;
     border-radius: 36px;
     gap: 50px;
+    height: 700px;
+    top: 0;
+    position: sticky;
     display: flex;
     align-items: center;
     justify-content: space-between;

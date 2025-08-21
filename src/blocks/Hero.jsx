@@ -1,4 +1,5 @@
 import React from 'react';
+import Tilt from 'react-vanilla-tilt'
 
 // CSS
 import "../styles/Hero.css";
@@ -19,7 +20,13 @@ function Hero({ click }) {
           <p className="desc">Our AI platform builds a personalized strategy with daily tasks to lead you to $1,000,000.</p>
           <button className='wait herowait' onClick={click}>Join to Wait List</button>
         </div>
-        <div className='heroImg'></div>
+        <Tilt
+          options={{ scale: 2, max: 25 }}
+          style={{ backgroundColor: "none" }}
+          className="tiltWrapper"
+        >
+          <div className='heroImg'></div>
+        </Tilt>
       </div>
     </div>
   )
