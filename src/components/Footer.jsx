@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link, useLocation } from 'react-router';
 
 import { FaTelegramPlane } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
@@ -24,7 +25,7 @@ function Footer() {
                     <ul>
                         <li><a href="#">Careers</a></li>
                         <li><a href="#">Hiring</a></li>
-                        <li><a href="#" style={{ color: "#888888" }}>FAQ</a></li>
+                        <li><Link to="/faq" style={{ color: "#888888" }}>FAQ</Link></li>
                     </ul>
                     <div className="socials">
                         <a href="#">

@@ -7,6 +7,9 @@ import './App.css';
 import Faq from './routes/Faq';
 import Home from './routes/Home';
 
+// Components
+import ScrollToTop from "./components/ScrollToTop";
+
 function App() {
   useEffect(() => {
     const handleScroll = () => {
@@ -20,9 +23,10 @@ function App() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  
+
   return (
     <div className="App">
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/faq" element={<Faq />} />
