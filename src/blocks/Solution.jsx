@@ -1,9 +1,51 @@
-import React from 'react';
+import { useState, useEffect, useRef } from "react";
 
 // CSS
 import "../styles/Solution.css";
 
 function Solution() {
+    const [progress, setProgress] = useState(0);
+    const refs = useRef([]);
+    const lastYRef = useRef(0);
+    const dirRef = useRef("down");
+
+    useEffect(() => {
+        const onScroll = () => {
+            const y = window.scrollY;
+            dirRef.current = y > lastYRef.current ? "down" : "up";
+            lastYRef.current = y;
+        };
+        window.addEventListener("scroll", onScroll, { passive: true });
+        onScroll();
+        return () => window.removeEventListener("scroll", onScroll);
+    }, []);
+
+    useEffect(() => {
+        const io = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (!entry.isIntersecting) return;
+                    const idx = Number(entry.target.dataset.idx);
+                    if (Number.isNaN(idx)) return;
+
+                    if (dirRef.current === "down") {
+                        setProgress((p) => (idx + 1 > p ? idx + 1 : p));
+                    } else {
+                        setProgress((p) => (idx < p ? idx : p));
+                    }
+                });
+            },
+            { threshold: 1 }
+        );
+
+        refs.current.forEach((el) => el && io.observe(el));
+        return () => refs.current.forEach((el) => el && io.unobserve(el));
+    }, []);
+
+    const setRef = (el, i) => (refs.current[i] = el);
+
+    const isOn = (i) => i < progress;
+
     return (
         <div className='Solution' id='solution'>
             <div className="solutionBlock">
@@ -14,16 +56,25 @@ function Solution() {
                         <p>We created an AI agent that sees opportunities invisible to the human eye</p>
                     </div>
                     <div>
-                        <p>By analyzing your data, it models dozens of possible scenarios and selects the optimal one</p>
+                        <p ref={(el) => setRef(el, 0)}
+                            data-idx="0"
+                            className={isOn(0) ? "o-4" : ""}
+                        >By analyzing your data, it models dozens of possible scenarios and selects the optimal one</p>
                     </div>
                     <div>
-                        <p>It turns that scenario into a clear, precise <span>roadmap to your first million dollars</span></p>
+                        <p ref={(el) => setRef(el, 1)}
+                            data-idx="1"
+                            className={isOn(1) ? "o-4" : ""}>It turns that scenario into a clear, precise <span>roadmap to your first million dollars</span></p>
                     </div>
                     <div>
-                        <p>It forecasts current industry trends and suggests solutions where others see nothing</p>
+                        <p ref={(el) => setRef(el, 2)}
+                            data-idx="2"
+                            className={isOn(2) ? "o-4" : ""}>It forecasts current industry trends and suggests solutions where others see nothing</p>
                     </div>
                     <div>
-                        <p>This roadmap unfolds into concrete, personalized tasks you can start right away</p>
+                        <p ref={(el) => setRef(el, 3)}
+                            data-idx="3"
+                            className={isOn(3) ? "o-4" : ""}>This roadmap unfolds into concrete, personalized tasks you can start right away</p>
                     </div>
                 </div>
             </div>
