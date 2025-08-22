@@ -1,14 +1,52 @@
-import React from 'react';
-
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-
-AOS.init();
+import React, { useLayoutEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 // CSS
 import "../styles/NotWorking.css";
 
+gsap.registerPlugin(ScrollTrigger);
+
 function NotWorking() {
+    const blockRef = useRef(null);
+
+    useLayoutEffect(() => {
+        if (!blockRef.current) return;
+
+        const ctx = gsap.context(() => {
+            const points = gsap.utils.toArray(".not-working-block .not-work-point");
+
+            // Start hidden + slightly offset so there's zero FOUC
+            gsap.set(points, { autoAlpha: 0, y: 16, scale: 0.98, willChange: "transform, opacity" });
+
+            // Pin the container and scrub through the reveals
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: blockRef.current,
+                    start: "top 100px", // same breathing room as your works stack
+                    end: () =>
+                        "+=" +
+                        Math.max(window.innerHeight * 0.8, points.length * 180), // tighten/loosen here
+                    pin: true,
+                    scrub: true,
+                    anticipatePin: 1
+                }
+            });
+
+            // Reveal each point smoothly, distributed across the whole scroll
+            const denom = Math.max(1, points.length - 1);
+            points.forEach((el, i) => {
+                tl.to(
+                    el,
+                    { autoAlpha: 1, y: 0, scale: 1, duration: 0.35, ease: "power1.out" },
+                    i / denom // normalized placement to avoid snap
+                );
+            });
+        }, blockRef);
+
+        return () => ctx.revert();
+    }, []);
+
     return (
         <div className='NotWorking'>
             <center>
@@ -25,26 +63,26 @@ function NotWorking() {
                 <p className="working-head working-two" id="work-grad" style={{ maxWidth: 565 }}>universal "secrets" advice from books other people's success stories</p>
             </center>
             <center>
-                <div className="not-working-block">
+                <div className="not-working-block" ref={blockRef}>
                     <div className='not-work-head'>
                         <p>It’s not working</p>
                     </div>
-                    <div className="not-work-point point-one" data-aos="zoom-in">
+                    <div className="not-work-point point-one">
                         <span>Wait for the perfect moment and a genius idea</span>
                     </div>
-                    <div className="not-work-point point-two" data-aos="zoom-in">
+                    <div className="not-work-point point-two">
                         <span>Skip the latte, save $5 a day, and you’ll be a millionaire </span>
                     </div>
-                    <div className="not-work-point point-three" data-aos="zoom-in">
+                    <div className="not-work-point point-three">
                         <span>Drop out of school and you’ll be the next billionaire</span>
                     </div>
-                    <div className="not-work-point point-four" data-aos="zoom-in">
+                    <div className="not-work-point point-four">
                         <span>Just work hard and the money will come</span>
                     </div>
-                    <div className="not-work-point point-five" data-aos="zoom-in">
+                    <div className="not-work-point point-five">
                         <span>Rack up as many degrees as possible and a high salary is guaranteed</span>
                     </div>
-                    <div className="not-work-point point-six" data-aos="zoom-in">
+                    <div className="not-work-point point-six">
                         <span>Focus on your dream, and the Universe will attune itself to your success</span>
                     </div>
                 </div>
