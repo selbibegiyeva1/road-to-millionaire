@@ -30,7 +30,6 @@
 }
 
 .solutionGrid div p {
-    opacity: 40%;
     transition: 0.3s;
     color: white;
 }
@@ -73,10 +72,6 @@
     gap: 25px;
     font-size: 28px;
     font-weight: 600;
-}
-
-.solutionGrid div .o-4 {
-    opacity: 100%;
 }
 
 @media(max-width: 1440px) {
