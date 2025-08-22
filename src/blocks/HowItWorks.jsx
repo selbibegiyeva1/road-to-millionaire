@@ -1,9 +1,45 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 
 // CSS
 import "../styles/HowItWorks.css";
 
 function HowItWorks() {
+    const [lettersRef, setlettersRef] = useArrayRef();
+    const triggerRef = useRef(null)
+
+
+    function useArrayRef() {
+        const lettersRef = useRef([]);
+        lettersRef.current = [];
+        return [lettersRef, (ref) => ref && lettersRef.current.push(ref)];
+    }
+
+    gsap.registerPlugin(ScrollTrigger);
+    const text = "World changes — and your plan changes with it. Our AI constantly adjusts your roadmap and tasks based on your results and fresh market data."
+
+    useEffect(() => {
+        const anim = gsap.to(
+            lettersRef.current,
+            {
+                scrollTrigger: {
+                    trigger: triggerRef.current,
+                    scrub: true,
+                    start: "top center",
+                    end: "bottom top"
+
+                },
+                color: "white",
+                duration: 0.5,     // each word takes 0.4s to change color
+                stagger: 0.1,     // 0.25s between each word starting
+            }
+        );
+        return (() => {
+            anim.kill()
+        })
+    }, []);
+
     return (
         <div className='HowItWorks' id='howitworks'>
             <div className="how-it-works-block">
@@ -112,7 +148,14 @@ function HowItWorks() {
                     </div>
                 </div>
 
-                <p className="work-moto">World changes — and your plan changes with it. Our AI constantly adjusts your roadmap and tasks based on your results and fresh market data.</p>
+                <div ref={triggerRef} className="work-moto">
+                    {text.split("").map((letter, index) => (
+                        <span key={index} ref={setlettersRef}>
+                            {letter}
+                        </span>
+                    ))}
+                </div>
+                {/* World changes — and your plan changes with it. Our AI constantly adjusts your roadmap and tasks based on your results and fresh market data. */}
             </div>
         </div>
     )
