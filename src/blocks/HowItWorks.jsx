@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useLayoutEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 
@@ -7,8 +7,8 @@ import "../styles/HowItWorks.css";
 
 function HowItWorks() {
     const [lettersRef, setlettersRef] = useArrayRef();
-    const triggerRef = useRef(null)
-
+    const triggerRef = useRef(null);
+    const worksRef = useRef(null);
 
     function useArrayRef() {
         const lettersRef = useRef([]);
@@ -20,24 +20,75 @@ function HowItWorks() {
     const text = "World changes — and your plan changes with it. Our AI constantly adjusts your roadmap and tasks based on your results and fresh market data."
 
     useEffect(() => {
-        const anim = gsap.to(
-            lettersRef.current,
-            {
-                scrollTrigger: {
-                    trigger: triggerRef.current,
-                    scrub: true,
-                    start: "top center",
-                    end: "bottom top"
+        if (!triggerRef.current || !lettersRef.current.length) return;
 
-                },
-                color: "white",
-                duration: 0.5,     // each word takes 0.4s to change color
-                stagger: 0.1,     // 0.25s between each word starting
-            }
-        );
-        return (() => {
-            anim.kill()
-        })
+        // timeline that reveals color across characters; progress is driven by ScrollTrigger
+        const reveal = gsap.to(lettersRef.current, {
+            color: "white",
+            stagger: 0.1,    
+            ease: "none",
+            paused: true
+        });
+
+        const st = ScrollTrigger.create({
+            trigger: triggerRef.current,
+            start: "top 100px", // same breathing room as cards
+            end: () => {
+                const perChar = 22; // px of scroll per character
+                return "+=" + Math.max(window.innerHeight * 0.8, lettersRef.current.length * perChar);
+            },
+            pin: true,
+            scrub: true,
+            anticipatePin: 1,
+            onUpdate: (self) => reveal.progress(self.progress)
+        });
+
+        return () => {
+            st.kill();
+            reveal.kill();
+        };
+    }, []);
+
+    useLayoutEffect(() => {
+        if (!worksRef.current) return;
+
+        const ctx = gsap.context(() => {
+            const cards = gsap.utils.toArray(".works .work");
+
+            // Stack cards: highest zIndex for the last one so it lays on top when it slides in
+            gsap.set(cards, {
+                position: "absolute",
+                inset: 0,
+                willChange: "transform",
+                zIndex: (i) => i
+            });
+
+            // Start every card (except the first) below the viewport
+            cards.forEach((card, i) => {
+                if (i === 0) return;
+                gsap.set(card, { yPercent: 100 });
+            });
+
+            // Timeline pinned to the whole stack
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: worksRef.current,
+                    start: "top 100px", // pin only after 100px of viewport is passed
+                    end: () => "+=" + window.innerHeight * (cards.length - 1),
+                    pin: true,
+                    scrub: true,
+                    anticipatePin: 1
+                }
+            });
+
+            // Each card slides up to cover the previous one
+            cards.forEach((card, i) => {
+                if (i === 0) return;
+                tl.to(card, { yPercent: 0, ease: "none" }, ">"); // chain immediately
+            });
+        }, worksRef);
+
+        return () => ctx.revert();
     }, []);
 
     return (
@@ -46,7 +97,7 @@ function HowItWorks() {
                 <p className="blockSub">How it works</p>
                 <p className="blockHead worksHead">From chaos to a clear plan in three steps</p>
 
-                <div className="works">
+                <div className="works" ref={worksRef}>
 
                     {/* work 1 */}
                     <div className="work">
