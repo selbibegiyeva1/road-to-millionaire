@@ -34,7 +34,7 @@ function HowItWorks() {
             trigger: triggerRef.current,
             start: "top 100px", // same breathing room as cards
             end: () => {
-                const perChar = 8; // px of scroll per character
+                const perChar = 22; // px of scroll per character
                 return "+=" + Math.max(window.innerHeight * 0.8, lettersRef.current.length * perChar);
             },
             pin: true,
