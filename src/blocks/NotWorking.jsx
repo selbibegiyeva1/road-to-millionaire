@@ -9,6 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 function NotWorking() {
     const blockRef = useRef(null);
+    const bottomRef = useRef(null);
 
     useLayoutEffect(() => {
         if (!blockRef.current) return;
@@ -23,7 +24,7 @@ function NotWorking() {
             const tl = gsap.timeline({
                 scrollTrigger: {
                     trigger: blockRef.current,
-                    start: "top 100px", // same breathing room as your works stack
+                    start: "top 180px", // same breathing room as your works stack
                     end: () =>
                         "+=" +
                         Math.max(window.innerHeight * 0.8, points.length * 180), // tighten/loosen here
@@ -43,6 +44,75 @@ function NotWorking() {
                 );
             });
         }, blockRef);
+
+        return () => ctx.revert();
+    }, []);
+
+    // Bottom-head sticky word-by-word (keep your exact markup)
+    useLayoutEffect(() => {
+        if (!bottomRef.current) return;
+
+        // --- Wrap words without changing your existing spans or spacing ---
+        const wrapWordsPreserveSpans = (root) => {
+            const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+                acceptNode: (n) => (n.nodeValue && n.nodeValue.trim().length > 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT)
+            });
+
+            const textNodes = [];
+            let n;
+            while ((n = walker.nextNode())) textNodes.push(n);
+
+            textNodes.forEach((textNode) => {
+                const frag = document.createDocumentFragment();
+                const parts = textNode.nodeValue.split(/(\s+)/); // keep spaces as tokens
+
+                parts.forEach((token) => {
+                    if (/^\s+$/.test(token)) {
+                        frag.appendChild(document.createTextNode(token)); // preserve exact whitespace
+                    } else {
+                        const span = document.createElement("span");
+                        span.className = "bh-word";
+                        span.textContent = token;
+                        frag.appendChild(span);
+                    }
+                });
+
+                textNode.parentNode.replaceChild(frag, textNode);
+            });
+        };
+
+        // Only wrap once
+        if (!bottomRef.current.dataset.wordsWrapped) {
+            wrapWordsPreserveSpans(bottomRef.current);
+            bottomRef.current.dataset.wordsWrapped = "true";
+        }
+
+        const words = bottomRef.current.querySelectorAll(".bh-word");
+        if (!words.length) return;
+
+        const ctx = gsap.context(() => {
+            gsap.set(words, { opacity: 0.4 });
+
+            const reveal = gsap.to(words, {
+                opacity: 1,
+                ease: "none",
+                stagger: 0.08,
+                paused: true
+            });
+
+            ScrollTrigger.create({
+                trigger: bottomRef.current,
+                start: "top 250px",
+                end: () => {
+                    const perWord = 250; // tighten/loosen the pin
+                    return "+=" + Math.max(0.5 * window.innerHeight, words.length * perWord);
+                },
+                pin: true,
+                scrub: true,
+                anticipatePin: 1,
+                onUpdate: (self) => reveal.progress(self.progress)
+            });
+        }, bottomRef);
 
         return () => ctx.revert();
     }, []);
@@ -94,7 +164,9 @@ function NotWorking() {
                 <p className="working-head working-two" style={{ maxWidth: 1050 }}><span>But that’s playing with someone else’s cards.</span> You’re trying to copy a path that ignores your unique mix of skills, experience, resources, and ambition.</p>
             </center>
             <center>
-                <p className="working-head" id='bottom-head' style={{ maxWidth: 1200 }}>We <span>decided</span> to <span>change</span> that.</p>
+                <p className="working-head" id='bottom-head' style={{ maxWidth: 1200 }} ref={bottomRef}>
+                    We <span className="grad">decided</span> to <span className="grad">change</span> that.
+                </p>
             </center>
         </div>
     )

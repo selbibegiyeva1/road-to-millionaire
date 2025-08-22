@@ -9,8 +9,8 @@
     font-weight: 600;
 }
 
-.working-head span,
-#work-grad {
+.working-head .grad,
+#work_grad {
     background: -webkit-linear-gradient(right, #D6B0BC, #7053FF);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -64,10 +64,6 @@
     text-align: center;
     position: absolute;
     border: 2px solid #FFFFFF1A;
-    opacity: 0;
-    transform: translateY(16px) scale(0.98);
-    will-change: transform, opacity;
-    z-index: 1;
     border-radius: 34px;
     padding: 50px 25px;
     font-weight: 500;
@@ -112,7 +108,25 @@
 }
 
 #bottom-head {
+    color: white;
     padding-top: 150px;
+}
+
+#bottom-head .bh-word {
+    display: inline;
+    opacity: 0.4;
+    /* initial state; GSAP animates to 1 */
+    will-change: opacity;
+    color: inherit;
+    /* inherit white from #bottom-head */
+}
+
+/* Ensure gradient applies inside the .grad spans too (after we wrap words) */
+#bottom-head .grad,
+#bottom-head .grad .bh-word {
+    background: -webkit-linear-gradient(right, #D6B0BC, #7053FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 @media(max-width: 1560px) {
