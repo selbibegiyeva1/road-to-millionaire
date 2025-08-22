@@ -1,5 +1,3 @@
-import React from 'react';
-
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -26,7 +24,7 @@ function Solution() {
                     </div>
                     <div data-aos="fade-up">
                         <p>It forecasts current industry trends and suggests solutions where others see nothing</p>
-                    </div>
+                    </div> 
                     <div data-aos="fade-up">
                         <p>This roadmap unfolds into concrete, personalized tasks you can start right away</p>
                     </div>
