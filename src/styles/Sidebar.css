@@ -11,7 +11,7 @@
     justify-content: space-between;
     opacity: 0;
     top: 0%;
-    left: 0%;
+    left: -15px;
     width: 100%;
     height: 100%;
     backdrop-filter: blur(10px);
@@ -23,6 +23,7 @@
 .Sidebar.show {
     pointer-events: all;
     opacity: 1;
+    left: 0px;
 }
 
 header {
@@ -63,6 +64,11 @@ header {
     font-weight: 500;
     font-size: 42px;
     font-weight: 24px;
+    transition: 0.3s;
+
+    &:hover {
+        color: #888888;
+    }
 }
 
 .side-btns button,

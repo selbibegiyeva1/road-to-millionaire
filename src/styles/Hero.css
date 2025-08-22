@@ -11,13 +11,31 @@
     background: linear-gradient(to top, #141414, #0E0E0E);
     display: flex;
     align-items: center;
+    overflow: hidden;
     justify-content: center;
+    position: relative;
     width: fit-content;
     margin: 0px auto 0px auto;
-    border: 1px solid #FFFFFF33;
     border-radius: 25px;
     gap: 65px;
     padding: 125px 75px;
+}
+
+.heroBlock:hover::before {
+    top: 25%;
+    opacity: 75%;
+}
+
+.heroBlock::before {
+    background: linear-gradient(#62589700, #A594FD, #62589700);
+    content: "";
+    position: absolute;
+    opacity: 0%;
+    top: 75%;
+    left: 0%;
+    width: 2px;
+    height: 75px;
+    transition: 0.75s;
 }
 
 .sub-head {
@@ -39,6 +57,14 @@
     &:hover {
         transform: scale(1.025);
     }
+}
+
+.sub-head svg {
+    transition: 0.3s;
+}
+
+.sub-head:hover svg {
+    transform: rotate(-270deg);
 }
 
 .heading {
