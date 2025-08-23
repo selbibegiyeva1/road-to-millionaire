@@ -1,4 +1,5 @@
-import { Link, useLocation } from 'react-router';
+import { Link } from 'react-router';
+import { NavLink } from 'react-router';
 
 // CSS
 import "../styles/Navbar.css";
@@ -6,8 +7,6 @@ import "../styles/Navbar.css";
 import { BsFillGridFill } from "react-icons/bs";
 
 function Navbar({ click, sidebar }) {
-    const location = useLocation();
-
     return (
         <div className='Navbar'>
             <nav>
@@ -20,13 +19,10 @@ function Navbar({ click, sidebar }) {
                     <p>Road To Millionaire</p>
                 </Link>
 
-                {/* links – hide on /faq */}
-                {location.pathname !== "/faq" && (
-                    <ul>
-                        <li><Link to="/">Product</Link></li>
-                        <li><Link to="/faq">FAQ</Link></li>
-                    </ul>
-                )}
+                <ul>
+                    <li><NavLink to="/" className={({ isActive }) => isActive ? "active-link" : "inactive-link"}>Product</NavLink></li>
+                    <li><NavLink to="/faq" className={({ isActive }) => isActive ? "active-link" : "inactive-link"}>FAQ</NavLink></li>
+                </ul>
 
                 {/* right */}
                 <div className="right" style={{ zIndex: 2 }}>

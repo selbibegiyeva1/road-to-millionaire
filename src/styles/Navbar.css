@@ -32,7 +32,6 @@ nav {
 }
 
 .Navbar ul li a {
-    color: #888888;
     position: relative;
     font-weight: 500;
     transition: 0.3s;
@@ -42,17 +41,41 @@ nav {
     }
 }
 
-.Navbar ul li a:hover::before {
-    background-color: white;
+.inactive-link {
+    color: #888888;
+    position: relative;
+
+    &:hover {
+        color: white;
+    }
+}
+
+.inactive-link:hover::before {
+    background: white;
     width: 100%;
 }
 
-.Navbar ul li a::before {
+.inactive-link::before {
     content: "";
     position: absolute;
-    background-color: #888888;
+    background: #888888;
     bottom: -10px;
     width: 0%;
+    height: 1.2px;
+    transition: 0.3s;
+}
+
+.active-link {
+    color: white;
+    position: relative;
+}
+
+.active-link::before {
+    content: "";
+    position: absolute;
+    background-color: white;
+    bottom: -10px;
+    width: 100%;
     height: 1.2px;
     transition: 0.3s;
 }
@@ -102,7 +125,8 @@ nav {
         display: none;
     }
 
-    .right span, .right .wait {
+    .right span,
+    .right .wait {
         display: none;
     }
 
