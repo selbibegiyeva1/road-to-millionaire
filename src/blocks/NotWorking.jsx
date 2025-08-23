@@ -53,7 +53,7 @@ function NotWorking() {
                     trigger: stickyRef.current,        // CHANGED: pin wrapper (heading + block)
                     start: "top 50px",
                     end: () =>
-                        "+=" + Math.max(window.innerHeight * 0.8, points.length * 375),
+                        "+=" + Math.max(window.innerHeight * 0.8, points.length * 600),
                     pin: true,
                     scrub: true,
                     anticipatePin: 1
@@ -64,7 +64,7 @@ function NotWorking() {
             points.forEach((el, i) => {
                 tl.to(
                     el,
-                    { autoAlpha: 1, y: 0, scale: 1, duration: 0.35, ease: "power1.out" },
+                    { autoAlpha: 1, y: 0, scale: 1, duration: 1, ease: "power1.out" },
                     i / denom
                 );
             });
@@ -77,7 +77,7 @@ function NotWorking() {
                     "--reveal": "100%",
                     opacity: 1,           // fade up too
                     ease: "none",
-                    duration: 0.6
+                    duration: 1
                 }, "pointsDone");
             }
         }, stickyRef);
