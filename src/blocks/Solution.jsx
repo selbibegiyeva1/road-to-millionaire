@@ -1,12 +1,40 @@
+import { useEffect } from 'react';
+
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-AOS.init();
+AOS.init({
+    // Set values that won't eagerly trigger; you'll control the class instead
+    offset: 0,
+    once: false, // you decide if you want to remove the class on exit
+    duration: 600,
+    easing: 'ease-out',
+});
 
 // CSS
 import "../styles/Solution.css";
 
 function Solution() {
+    useEffect(() => {
+        const targets = document.querySelectorAll('[data-aos]');
+
+        const io = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    // fully visible only
+                    if (entry.intersectionRatio === 1) {
+                        entry.target.classList.add('aos-animate');     // trigger the AOS animation
+                    } else {
+                        entry.target.classList.remove('aos-animate');  // optional: remove when not fully visible
+                    }
+                });
+            },
+            { threshold: 1 } // 1 = 100% of the element is in the viewport
+        );
+
+        targets.forEach((el) => io.observe(el));
+        return () => io.disconnect();
+    }, []);
     return (
         <div className='Solution' id='solution'>
             <div className="solutionBlock">
@@ -16,16 +44,16 @@ function Solution() {
                     <div data-aos="fade-up">
                         <p>We created an AI agent that sees opportunities invisible to the human eye</p>
                     </div>
-                    <div data-aos="fade-up" data-aos-delay="300">
+                    <div data-aos="fade-up" data-aos-delay="500">
                         <p>By analyzing your data, it models dozens of possible scenarios and selects the optimal one</p>
                     </div>
-                    <div data-aos="fade-up" data-aos-delay="300">
+                    <div data-aos="fade-up" data-aos-delay="500">
                         <p>It turns that scenario into a clear, precise <span>roadmap to your first million dollars</span></p>
                     </div>
-                    <div data-aos="fade-up" data-aos-delay="300">
+                    <div data-aos="fade-up" data-aos-delay="500">
                         <p>It forecasts current industry trends and suggests solutions where others see nothing</p>
-                    </div> 
-                    <div data-aos="fade-up" data-aos-delay="300">
+                    </div>
+                    <div data-aos="fade-up" data-aos-delay="500">
                         <p>This roadmap unfolds into concrete, personalized tasks you can start right away</p>
                     </div>
                 </div>
