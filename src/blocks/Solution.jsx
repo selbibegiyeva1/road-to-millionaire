@@ -8,48 +8,59 @@ function Solution() {
         const container = document.querySelector(".solutionGrid");
         if (!container) return;
 
-        const items = Array.from(container.querySelectorAll(":scope > div"));
+        // Responsive order (keep if you already added this logic)
         const mq = window.matchMedia("(max-width: 1440px)");
-
+        const items = Array.from(container.querySelectorAll(":scope > div"));
         const posByEl = new Map();
         let highestRevealed = -1;
 
-        const setOrder = () => {
-            // <=1440px → regular order; otherwise your custom order
-            const custom = [0, 3, 1, 4, 2];
-            const order = mq.matches ? [0, 1, 2, 3, 4] : custom;
+        const applyOrder = () => {
+            const custom = [0, 3, 1, 4, 2];          // >1440px
+            const regular = [0, 1, 2, 3, 4];         // ≤1440px
+            const order = mq.matches ? regular : custom;
 
             posByEl.clear();
             items.forEach((el, domIndex) => {
                 const pos = order.indexOf(domIndex);
                 posByEl.set(el, pos);
                 el.setAttribute("data-seq", String(pos));
-                el.classList.remove("is-visible"); // reset visual state on breakpoint change
             });
-
-            highestRevealed = -1; // reset sequence tracker
         };
 
-        setOrder();
-        // React to viewport changes (resize/orientation)
-        const mqHandler = () => setOrder();
+        applyOrder();
+        const mqHandler = () => {
+            // reset on breakpoint change to avoid stale state
+            items.forEach((el) => el.classList.remove("is-visible"));
+            highestRevealed = -1;
+            applyOrder();
+        };
         mq.addEventListener ? mq.addEventListener("change", mqHandler)
-            : mq.addListener(mqHandler); // Safari fallback
+            : mq.addListener(mqHandler);
+
+        // Direction-aware reverse
+        let lastScrollY = window.scrollY;
+        const SHOW_RATIO = 0.75; // be lenient on reveal (prevents “stuck faded”)
 
         const io = new IntersectionObserver(
             (entries) => {
+                const directionUp = window.scrollY < lastScrollY;
+                lastScrollY = window.scrollY;
+
                 entries.forEach((entry) => {
                     const el = entry.target;
                     const pos = posByEl.get(el);
 
-                    if (entry.isIntersecting && entry.intersectionRatio === 1) {
-                        // forward step
+                    // Forward: reveal when mostly visible
+                    if (entry.isIntersecting && entry.intersectionRatio >= SHOW_RATIO) {
                         if (pos === highestRevealed + 1) {
                             el.classList.add("is-visible");
                             highestRevealed = pos;
                         }
-                    } else if (!entry.isIntersecting) {
-                        // reverse step
+                        return;
+                    }
+
+                    // Reverse: only when scrolling up AND fully out
+                    if (!entry.isIntersecting && entry.intersectionRatio === 0 && directionUp) {
                         if (pos === highestRevealed) {
                             el.classList.remove("is-visible");
                             highestRevealed = pos - 1;
@@ -57,7 +68,10 @@ function Solution() {
                     }
                 });
             },
-            { threshold: [0, 1] }
+            {
+                threshold: [0, SHOW_RATIO, 1],
+                rootMargin: "0px 0px -1px 0px", // tiny nudge to avoid flicker at the bottom edge
+            }
         );
 
         items.forEach((el) => io.observe(el));
