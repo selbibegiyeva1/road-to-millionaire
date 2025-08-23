@@ -8,18 +8,33 @@ function Solution() {
         const container = document.querySelector(".solutionGrid");
         if (!container) return;
 
-        // Strict reveal order: [first, second, third, fourth, last]
-        const order = [0, 3, 1, 4, 2];
         const items = Array.from(container.querySelectorAll(":scope > div"));
+        const mq = window.matchMedia("(max-width: 1440px)");
 
         const posByEl = new Map();
-        items.forEach((el, domIndex) => {
-            const pos = order.indexOf(domIndex);
-            posByEl.set(el, pos);
-            el.setAttribute("data-seq", String(pos));
-        });
+        let highestRevealed = -1;
 
-        let highestRevealed = -1; // track where we are in the sequence
+        const setOrder = () => {
+            // <=1440px → regular order; otherwise your custom order
+            const custom = [0, 3, 1, 4, 2];
+            const order = mq.matches ? [0, 1, 2, 3, 4] : custom;
+
+            posByEl.clear();
+            items.forEach((el, domIndex) => {
+                const pos = order.indexOf(domIndex);
+                posByEl.set(el, pos);
+                el.setAttribute("data-seq", String(pos));
+                el.classList.remove("is-visible"); // reset visual state on breakpoint change
+            });
+
+            highestRevealed = -1; // reset sequence tracker
+        };
+
+        setOrder();
+        // React to viewport changes (resize/orientation)
+        const mqHandler = () => setOrder();
+        mq.addEventListener ? mq.addEventListener("change", mqHandler)
+            : mq.addListener(mqHandler); // Safari fallback
 
         const io = new IntersectionObserver(
             (entries) => {
@@ -28,13 +43,13 @@ function Solution() {
                     const pos = posByEl.get(el);
 
                     if (entry.isIntersecting && entry.intersectionRatio === 1) {
-                        // going into viewport
+                        // forward step
                         if (pos === highestRevealed + 1) {
                             el.classList.add("is-visible");
                             highestRevealed = pos;
                         }
-                    } else {
-                        // leaving viewport (reverse)
+                    } else if (!entry.isIntersecting) {
+                        // reverse step
                         if (pos === highestRevealed) {
                             el.classList.remove("is-visible");
                             highestRevealed = pos - 1;
@@ -42,11 +57,16 @@ function Solution() {
                     }
                 });
             },
-            { threshold: 1 } // fully in view
+            { threshold: [0, 1] }
         );
 
         items.forEach((el) => io.observe(el));
-        return () => io.disconnect();
+
+        return () => {
+            io.disconnect();
+            mq.removeEventListener ? mq.removeEventListener("change", mqHandler)
+                : mq.removeListener(mqHandler);
+        };
     }, []);
 
     return (
