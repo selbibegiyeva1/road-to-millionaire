@@ -10,7 +10,8 @@
 }
 
 .working-head .grad,
-#work_grad {
+#work-grad,
+#grad-span span {
     background: -webkit-linear-gradient(right, #D6B0BC, #7053FF);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

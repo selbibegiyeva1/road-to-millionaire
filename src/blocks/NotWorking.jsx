@@ -14,6 +14,8 @@ function NotWorking() {
     useLayoutEffect(() => {
         if (!blockRef.current) return;
 
+        if (window.innerWidth < 1560) return;
+
         const ctx = gsap.context(() => {
             const points = gsap.utils.toArray(".not-working-block .not-work-point");
 
@@ -51,6 +53,8 @@ function NotWorking() {
     // Bottom-head sticky word-by-word (keep your exact markup)
     useLayoutEffect(() => {
         if (!bottomRef.current) return;
+
+        if (window.innerWidth < 1560) return;
 
         // --- Wrap words without changing your existing spans or spacing ---
         const wrapWordsPreserveSpans = (root) => {
@@ -120,7 +124,7 @@ function NotWorking() {
     return (
         <div className='NotWorking'>
             <center>
-                <p className="working-head"><span>Stop playing a game</span> whose rules weren’t made for you!</p>
+                <p className="working-head" id="grad-span"><span>Stop playing a game</span> whose rules weren’t made for you!</p>
             </center>
             <center>
                 <div className="grad-line"></div>
@@ -161,7 +165,7 @@ function NotWorking() {
                 <div className="grad-line"></div>
             </center>
             <center>
-                <p className="working-head working-two" style={{ maxWidth: 1050 }}><span>But that’s playing with someone else’s cards.</span> You’re trying to copy a path that ignores your unique mix of skills, experience, resources, and ambition.</p>
+                <p className="working-head working-two" id="grad-span" style={{ maxWidth: 1050 }}><span>But that’s playing with someone else’s cards.</span> You’re trying to copy a path that ignores your unique mix of skills, experience, resources, and ambition.</p>
             </center>
             <center>
                 <p className="working-head" id='bottom-head' style={{ maxWidth: 1200 }} ref={bottomRef}>
