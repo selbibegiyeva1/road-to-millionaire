@@ -81,6 +81,15 @@ footer {
     width: 100%;
 }
 
+.footerLogo {
+    opacity: 50%;
+    transition: 0.3s;
+
+    &:hover {
+        opacity: 100%;
+    }
+}
+
 @media(max-width: 1024px) {
     .Footer {
         padding: 80px 50px 0px 50px;

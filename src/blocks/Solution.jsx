@@ -31,7 +31,7 @@ function Solution() {
                 </div>
             </div>
             <center>
-                <div className="grad-line"></div>
+                <div className="grad-line" data-aos="fade-down" data-aos-delay="250"></div>
             </center>
             <div className="solutionGrid2">
                 <div>

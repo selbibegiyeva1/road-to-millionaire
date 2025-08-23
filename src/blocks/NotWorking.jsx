@@ -2,6 +2,11 @@ import React, { useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
+AOS.init();
+
 // CSS
 import "../styles/NotWorking.css";
 
@@ -127,7 +132,7 @@ function NotWorking() {
                 <p className="working-head" id="grad-span"><span>Stop playing a game</span> whose rules weren’t made for you!</p>
             </center>
             <center>
-                <div className="grad-line"></div>
+                <div className="grad-line" data-aos="fade-down" data-aos-delay="300"></div>
             </center>
             <center>
                 <p className="working-head working-two">Throughout the 21st century we’ve been taught success from a single template:</p>
@@ -162,7 +167,7 @@ function NotWorking() {
                 </div>
             </center>
             <center>
-                <div className="grad-line"></div>
+                <div className="grad-line" data-aos="fade-down" data-aos-delay="250"></div>
             </center>
             <center>
                 <p className="working-head working-two" id="grad-span" style={{ maxWidth: 1050 }}><span>But that’s playing with someone else’s cards.</span> You’re trying to copy a path that ignores your unique mix of skills, experience, resources, and ambition.</p>

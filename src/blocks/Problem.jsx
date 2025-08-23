@@ -1,12 +1,11 @@
-import React from 'react';
 import { useState } from 'react';
 
 // CSS
 import "../styles/Problem.css";
 
 function Problem() {
-  const [incomeValue, setIncomeValue] = useState('5000');  // default as string
-  const [expenseValue, setExpenseValue] = useState('5000');
+  const [incomeValue, setIncomeValue] = useState('500');  // default as string
+  const [expenseValue, setExpenseValue] = useState('450');
 
   const [yearsResult, setYearsResult] = useState(null);
 

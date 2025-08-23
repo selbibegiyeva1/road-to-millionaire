@@ -42,7 +42,6 @@ function Home() {
             <JoinWishlist effect={wish} click={wishList} />
             <Navbar click={wishList} sidebar={sideBar} />
             <Hero click={wishList} sidebar={sideBar} />
-            <br /><br /><br /><br />
             <Slider />
             <br /><br /><br /><br />
             <Problem />
