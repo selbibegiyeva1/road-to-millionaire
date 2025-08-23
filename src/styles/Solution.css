@@ -34,6 +34,19 @@
     color: white;
 }
 
+.solutionGrid>div {
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 400ms ease, transform 400ms ease;
+    will-change: opacity, transform;
+}
+
+/* Revealed state */
+.solutionGrid>div.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 .solutionGrid div:nth-child(1) p,
 .solutionGrid div p span,
 .solutionGrid2 div span {
@@ -44,11 +57,11 @@
 }
 
 .solutionGrid div:nth-child(4) {
-    height: 605px;
+    height: 600px;
 }
 
 .solutionGrid div:nth-child(5) {
-    height: 560px;
+    height: 500px;
 }
 
 .solutionGrid2 {

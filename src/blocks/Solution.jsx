@@ -1,59 +1,83 @@
 import { useEffect } from 'react';
 
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-
-AOS.init({
-    // Set values that won't eagerly trigger; you'll control the class instead
-    offset: 0,
-    once: false, // you decide if you want to remove the class on exit
-    duration: 600,
-    easing: 'ease-out',
-});
-
 // CSS
 import "../styles/Solution.css";
 
 function Solution() {
     useEffect(() => {
-        const targets = document.querySelectorAll('[data-aos]');
+        const container = document.querySelector(".solutionGrid");
+        if (!container) return;
+
+        // Strict reveal order: [first, second, third, fourth, last]
+        const order = [0, 3, 1, 4, 2];
+        const items = Array.from(container.querySelectorAll(":scope > div"));
+
+        const posByEl = new Map();
+        items.forEach((el, domIndex) => {
+            const pos = order.indexOf(domIndex);
+            posByEl.set(el, pos);
+            el.setAttribute("data-seq", String(pos));
+        });
+
+        let highestRevealed = -1; // track where we are in the sequence
 
         const io = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
-                    // fully visible only
-                    if (entry.intersectionRatio === 1) {
-                        entry.target.classList.add('aos-animate');     // trigger the AOS animation
+                    const el = entry.target;
+                    const pos = posByEl.get(el);
+
+                    if (entry.isIntersecting && entry.intersectionRatio === 1) {
+                        // going into viewport
+                        if (pos === highestRevealed + 1) {
+                            el.classList.add("is-visible");
+                            highestRevealed = pos;
+                        }
                     } else {
-                        entry.target.classList.remove('aos-animate');  // optional: remove when not fully visible
+                        // leaving viewport (reverse)
+                        if (pos === highestRevealed) {
+                            el.classList.remove("is-visible");
+                            highestRevealed = pos - 1;
+                        }
                     }
                 });
             },
-            { threshold: 1 } // 1 = 100% of the element is in the viewport
+            { threshold: 1 } // fully in view
         );
 
-        targets.forEach((el) => io.observe(el));
+        items.forEach((el) => io.observe(el));
         return () => io.disconnect();
     }, []);
+
     return (
         <div className='Solution' id='solution'>
             <div className="solutionBlock">
                 <p className="blockSub">Our Solution</p>
                 <p className="blockHead solutionHead">Now You Play by Your Own Rules</p>
                 <div className="solutionGrid">
-                    <div data-aos="fade-up">
+
+                    {/* this one goes first */}
+                    <div>
                         <p>We created an AI agent that sees opportunities invisible to the human eye</p>
                     </div>
-                    <div data-aos="fade-up" data-aos-delay="500">
+
+                    {/* this one goes third */}
+                    <div>
                         <p>By analyzing your data, it models dozens of possible scenarios and selects the optimal one</p>
                     </div>
-                    <div data-aos="fade-up" data-aos-delay="500">
+
+                    {/* this one goes last */}
+                    <div>
                         <p>It turns that scenario into a clear, precise <span>roadmap to your first million dollars</span></p>
                     </div>
-                    <div data-aos="fade-up" data-aos-delay="500">
+
+                    {/* this one goes second */}
+                    <div>
                         <p>It forecasts current industry trends and suggests solutions where others see nothing</p>
                     </div>
-                    <div data-aos="fade-up" data-aos-delay="500">
+
+                    {/* this one goes fourth */}
+                    <div>
                         <p>This roadmap unfolds into concrete, personalized tasks you can start right away</p>
                     </div>
                 </div>
