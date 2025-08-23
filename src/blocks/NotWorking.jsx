@@ -13,44 +13,47 @@ import "../styles/NotWorking.css";
 gsap.registerPlugin(ScrollTrigger);
 
 function NotWorking() {
-    const blockRef = useRef(null);
+    const stickyRef = useRef(null); // NEW: wrapper that includes the heading + block
+    const blockRef = useRef(null);  // keep: used for querying points
     const bottomRef = useRef(null);
 
+    // Top sticky: pin heading + not-working-block together
     useLayoutEffect(() => {
-        if (!blockRef.current) return;
-
+        if (!stickyRef.current || !blockRef.current) return;
         if (window.innerWidth < 1560) return;
 
         const ctx = gsap.context(() => {
+            // Only reveal the points, not the heading
             const points = gsap.utils.toArray(".not-working-block .not-work-point");
 
-            // Start hidden + slightly offset so there's zero FOUC
-            gsap.set(points, { autoAlpha: 0, y: 16, scale: 0.98, willChange: "transform, opacity" });
+            gsap.set(points, {
+                autoAlpha: 0,
+                y: 16,
+                scale: 0.98,
+                willChange: "transform, opacity"
+            });
 
-            // Pin the container and scrub through the reveals
             const tl = gsap.timeline({
                 scrollTrigger: {
-                    trigger: blockRef.current,
-                    start: "top 180px", // same breathing room as your works stack
+                    trigger: stickyRef.current,        // CHANGED: pin wrapper (heading + block)
+                    start: "top 50px",
                     end: () =>
-                        "+=" +
-                        Math.max(window.innerHeight * 0.8, points.length * 375), // tighten/loosen here
+                        "+=" + Math.max(window.innerHeight * 0.8, points.length * 375),
                     pin: true,
                     scrub: true,
                     anticipatePin: 1
                 }
             });
 
-            // Reveal each point smoothly, distributed across the whole scroll
             const denom = Math.max(1, points.length - 1);
             points.forEach((el, i) => {
                 tl.to(
                     el,
                     { autoAlpha: 1, y: 0, scale: 1, duration: 0.35, ease: "power1.out" },
-                    i / denom // normalized placement to avoid snap
+                    i / denom
                 );
             });
-        }, blockRef);
+        }, stickyRef);
 
         return () => ctx.revert();
     }, []);
@@ -138,34 +141,37 @@ function NotWorking() {
                 <p className="working-head working-two">Throughout the 21st century we’ve been taught success from a single template:</p>
             </center>
             <br /><br /><br />
-            <center>
-                <p className="working-head working-two" id="work-grad" style={{ maxWidth: 565 }}>universal "secrets" advice from books other people's success stories</p>
-            </center>
-            <center>
-                <div className="not-working-block" ref={blockRef}>
-                    <div className='not-work-head'>
-                        <p>It’s not working</p>
+
+            <div className="nw-sticky" ref={stickyRef}>
+                <center>
+                    <p className="working-head working-two" id="work-grad" style={{ maxWidth: 565 }}>universal "secrets" advice from books other people's success stories</p>
+                </center>
+                <center>
+                    <div className="not-working-block" ref={blockRef}>
+                        <div className='not-work-head'>
+                            <p>It’s not working</p>
+                        </div>
+                        <div className="not-work-point point-one">
+                            <span>Wait for the perfect moment and a genius idea</span>
+                        </div>
+                        <div className="not-work-point point-two">
+                            <span>Skip the latte, save $5 a day, and you’ll be a millionaire </span>
+                        </div>
+                        <div className="not-work-point point-three">
+                            <span>Drop out of school and you’ll be the next billionaire</span>
+                        </div>
+                        <div className="not-work-point point-four">
+                            <span>Just work hard and the money will come</span>
+                        </div>
+                        <div className="not-work-point point-five">
+                            <span>Rack up as many degrees as possible and a high salary is guaranteed</span>
+                        </div>
+                        <div className="not-work-point point-six">
+                            <span>Focus on your dream, and the Universe will attune itself to your success</span>
+                        </div>
                     </div>
-                    <div className="not-work-point point-one">
-                        <span>Wait for the perfect moment and a genius idea</span>
-                    </div>
-                    <div className="not-work-point point-two">
-                        <span>Skip the latte, save $5 a day, and you’ll be a millionaire </span>
-                    </div>
-                    <div className="not-work-point point-three">
-                        <span>Drop out of school and you’ll be the next billionaire</span>
-                    </div>
-                    <div className="not-work-point point-four">
-                        <span>Just work hard and the money will come</span>
-                    </div>
-                    <div className="not-work-point point-five">
-                        <span>Rack up as many degrees as possible and a high salary is guaranteed</span>
-                    </div>
-                    <div className="not-work-point point-six">
-                        <span>Focus on your dream, and the Universe will attune itself to your success</span>
-                    </div>
-                </div>
-            </center>
+                </center>
+            </div>
             <center>
                 <div className="grad-line" data-aos="fade-down" data-aos-delay="250"></div>
             </center>
