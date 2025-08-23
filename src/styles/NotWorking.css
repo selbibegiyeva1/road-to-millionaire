@@ -47,6 +47,37 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+}
+
+.not-work-head p {
+    position: relative;
+}
+
+.not-work-head p .nw-reveal {
+    --reveal: 0%;
+    display: inline-block;
+    will-change: mask-image, -webkit-mask-image;
+
+    background: -webkit-linear-gradient(right, #D6B0BC, #7053FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    -webkit-mask-image: linear-gradient(to right,
+            rgba(0, 0, 0, 1) 0%,
+            rgba(0, 0, 0, 1) var(--reveal),
+            rgba(0, 0, 0, 0) calc(var(--reveal) + 8%)
+            /* <— soft fade edge */
+        );
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+
+    mask-image: linear-gradient(to right,
+            rgba(0, 0, 0, 1) 0%,
+            rgba(0, 0, 0, 1) var(--reveal),
+            rgba(0, 0, 0, 0) calc(var(--reveal) + 8%));
+    mask-repeat: no-repeat;
+    mask-size: 100% 100%;
 }
 
 .not-working-block p {
@@ -54,9 +85,9 @@
     font-weight: 500;
     line-height: 128px;
     letter-spacing: -3%;
-    background: -webkit-linear-gradient(right, #D6B0BC, #7053FF);
+    /* background: -webkit-linear-gradient(right, #D6B0BC, #7053FF);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color: transparent; */
     text-align: center;
 }
 
@@ -163,6 +194,12 @@
         align-items: initial;
         margin: 50px auto 50px auto;
         width: 100%;
+    }
+
+    .not-work-head p {
+        background: -webkit-linear-gradient(right, #D6B0BC, #7053FF);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
 
     .not-work-head {

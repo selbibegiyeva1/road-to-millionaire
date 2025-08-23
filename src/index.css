@@ -9,3 +9,17 @@
   font-family: "Geist", sans-serif;
   scroll-behavior: smooth;
 }
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+#smooth-wrapper {
+  height: 100%;
+}
+
+#smooth-content {
+  will-change: transform;
+}

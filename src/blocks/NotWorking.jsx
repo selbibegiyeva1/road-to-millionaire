@@ -23,6 +23,21 @@ function NotWorking() {
         if (window.innerWidth < 1560) return;
 
         const ctx = gsap.context(() => {
+            // NEW: prepare the heading for masking
+            const headingP = blockRef.current.querySelector(".not-work-head p");
+            let revealEl = null;
+            if (headingP && !headingP.dataset.revealWrapped) {
+                const span = document.createElement("span");
+                span.className = "nw-reveal";
+                span.textContent = headingP.textContent;      // keep the exact text
+                headingP.textContent = "";
+                headingP.appendChild(span);
+                headingP.dataset.revealWrapped = "true";
+                revealEl = span;
+            } else if (headingP) {
+                revealEl = headingP.querySelector(".nw-reveal");
+            }
+
             // Only reveal the points, not the heading
             const points = gsap.utils.toArray(".not-working-block .not-work-point");
 
@@ -53,6 +68,18 @@ function NotWorking() {
                     i / denom
                 );
             });
+
+            if (revealEl) {
+                gsap.set(revealEl, { "--reveal": "0%", opacity: 0 });
+
+                tl.add("pointsDone", 1);
+                tl.to(revealEl, {
+                    "--reveal": "100%",
+                    opacity: 1,           // fade up too
+                    ease: "none",
+                    duration: 0.6
+                }, "pointsDone");
+            }
         }, stickyRef);
 
         return () => ctx.revert();

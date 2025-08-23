@@ -15,7 +15,6 @@ import { FiMinus } from "react-icons/fi";
 function Faq() {
   const [wish, setWish] = useState(false);
   const [sidebar, setSidebar] = useState(false);
-  const [activeIndex, setActiveIndex] = useState(null);
 
   // separate active indices per section; both default to first item opened
   const [activeGeneralIndex, setActiveGeneralIndex] = useState(0);
