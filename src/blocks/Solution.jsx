@@ -16,16 +16,16 @@ function Solution() {
                     <div data-aos="fade-up">
                         <p>We created an AI agent that sees opportunities invisible to the human eye</p>
                     </div>
-                    <div data-aos="fade-up">
+                    <div data-aos="fade-up" data-aos-delay="300">
                         <p>By analyzing your data, it models dozens of possible scenarios and selects the optimal one</p>
                     </div>
-                    <div data-aos="fade-up">
+                    <div data-aos="fade-up" data-aos-delay="300">
                         <p>It turns that scenario into a clear, precise <span>roadmap to your first million dollars</span></p>
                     </div>
-                    <div data-aos="fade-up">
+                    <div data-aos="fade-up" data-aos-delay="300">
                         <p>It forecasts current industry trends and suggests solutions where others see nothing</p>
                     </div> 
-                    <div data-aos="fade-up">
+                    <div data-aos="fade-up" data-aos-delay="300">
                         <p>This roadmap unfolds into concrete, personalized tasks you can start right away</p>
                     </div>
                 </div>

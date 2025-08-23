@@ -178,6 +178,7 @@ function Faq() {
         </div>
       </div>
       <Footer />
+      <br /><br />
     </div>
   )
 }

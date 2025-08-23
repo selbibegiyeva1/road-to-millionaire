@@ -31,9 +31,7 @@ function Sidebar({ sidebar, show, click }) {
                 </div>
                 <br /><br />
                 <ul>
-                    <li><a href="#problem" onClick={sidebar}>Problem</a></li>
-                    <li><a href="#solution" onClick={sidebar}>Solution</a></li>
-                    <li><a href="#howitworks" onClick={sidebar}>How it works</a></li>
+                    <li><Link to="/" onClick={sidebar}>Product</Link></li>
                     <li><Link to="/faq" onClick={sidebar}>FAQ</Link></li>
                 </ul>
             </div>

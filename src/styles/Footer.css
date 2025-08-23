@@ -21,16 +21,14 @@ footer {
     gap: 30px;
 }
 
-.footer-flex ul li:nth-child(2) a {
-    color: #7053FF;
-    background-color: white;
-    padding: 10px 15px;
-    border-radius: 100px;
-}
-
 .footer-flex ul li a {
-    color: white;
+    color: #888888;
     font-weight: 500;
+    transition: 0.3s;
+
+    &:hover {
+        color: white;
+    }
 }
 
 .socials {

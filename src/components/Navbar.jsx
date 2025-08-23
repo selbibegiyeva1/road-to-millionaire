@@ -23,9 +23,7 @@ function Navbar({ click, sidebar }) {
                 {/* links – hide on /faq */}
                 {location.pathname !== "/faq" && (
                     <ul>
-                        <li><a href="#problem">Problem</a></li>
-                        <li><a href="#solution">Solution</a></li>
-                        <li><a href="#howitworks">How it works</a></li>
+                        <li><Link to="/">Product</Link></li>
                         <li><Link to="/faq">FAQ</Link></li>
                     </ul>
                 )}

@@ -23,9 +23,8 @@ function Footer() {
                         <p className='footer-desc'>Experience the future of money earning</p>
                     </div>
                     <ul>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Hiring</a></li>
-                        <li><Link to="/faq" style={{ color: "#888888" }}>FAQ</Link></li>
+                        <li><Link to="/">Product</Link></li>
+                        <li><Link to="/faq">FAQ</Link></li>
                     </ul>
                     <div className="socials">
                         <a href="#">
