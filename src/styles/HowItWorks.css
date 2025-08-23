@@ -215,6 +215,17 @@
     margin-top: 75px;
 }
 
+@media(max-width: 1560px) {
+    .works {
+        height: auto;
+        overflow: initial;
+    }
+
+    .work-moto {
+        color: white;
+    }
+}
+
 @media(max-width: 1550px) {
     .work-moto {
         font-size: 62px;

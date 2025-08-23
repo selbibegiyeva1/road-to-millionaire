@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router';
 
+import { Link } from 'react-router';
+
 import { FaTelegramPlane } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa";

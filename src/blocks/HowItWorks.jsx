@@ -22,10 +22,12 @@ function HowItWorks() {
     useEffect(() => {
         if (!triggerRef.current || !lettersRef.current.length) return;
 
+        if (window.innerWidth < 1560) return;
+
         // timeline that reveals color across characters; progress is driven by ScrollTrigger
         const reveal = gsap.to(lettersRef.current, {
             color: "white",
-            stagger: 0.05,    
+            stagger: 0.05,
             ease: "none",
             paused: true
         });
@@ -51,6 +53,8 @@ function HowItWorks() {
 
     useLayoutEffect(() => {
         if (!worksRef.current) return;
+
+        if (window.innerWidth < 1560) return;
 
         const ctx = gsap.context(() => {
             const cards = gsap.utils.toArray(".works .work");
