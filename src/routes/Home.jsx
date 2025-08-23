@@ -42,14 +42,23 @@ function Home() {
             <JoinWishlist effect={wish} click={wishList} />
             <Navbar click={wishList} sidebar={sideBar} />
             <Hero click={wishList} sidebar={sideBar} />
+            <br /><br /><br /><br />
             <Slider />
+            <br /><br /><br /><br />
             <Problem />
+            <br /><br /><br /><br />
             <NotWorking />
+            <br /><br /><br /><br />
             <Solution />
+            <br /><br /><br /><br />
             <HowItWorks />
+            <br /><br /><br /><br />
             <YourRight />
+            <br /><br /><br /><br />
             <YourJourney click={wishList} />
+            <br /><br /><br /><br />
             <Footer />
+            <br /><br /><br /><br />
         </div>
     )
 }

@@ -9,6 +9,12 @@
     color: #fff;
 }
 
+.slider-wrap:hover .slide p, 
+.slider-wrap:hover .slide svg path {
+    color: #A594FD;
+    fill: #A594FD;
+}
+
 .slider-track {
     display: flex;
     width: max-content;
@@ -30,6 +36,11 @@
     margin: 0;
     font-size: 108px;
     letter-spacing: -3%;
+    transition: 0.3s;
+}
+
+.slide svg path {
+    transition: 0.3s;
 }
 
 .slider-wrap::before,

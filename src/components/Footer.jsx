@@ -44,9 +44,6 @@ function Footer() {
                     <a href="#">Privacy Policy</a>
                 </div>
             </footer>
-            <div className="footer-img">
-                <img src="/footer.png" alt="footer" />
-            </div>
         </div>
     )
 }

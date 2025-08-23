@@ -29,7 +29,7 @@ function NotWorking() {
                     start: "top 180px", // same breathing room as your works stack
                     end: () =>
                         "+=" +
-                        Math.max(window.innerHeight * 0.8, points.length * 180), // tighten/loosen here
+                        Math.max(window.innerHeight * 0.8, points.length * 375), // tighten/loosen here
                     pin: true,
                     scrub: true,
                     anticipatePin: 1
