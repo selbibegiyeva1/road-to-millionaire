@@ -6,28 +6,29 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import "../styles/HowItWorks.css";
 
 function HowItWorks() {
-    const [lettersRef, setlettersRef] = useArrayRef();
+    const [wordRefs, setWordRef] = useArrayRef();
     const triggerRef = useRef(null);
     const worksRef = useRef(null);
 
     function useArrayRef() {
-        const lettersRef = useRef([]);
-        lettersRef.current = [];
-        return [lettersRef, (ref) => ref && lettersRef.current.push(ref)];
+        const refs = useRef([]);
+        refs.current = [];
+        return [refs, (el) => el && refs.current.push(el)];
     }
 
     gsap.registerPlugin(ScrollTrigger);
     const text = "World changes — and your plan changes with it. Our AI constantly adjusts your roadmap and tasks based on your results and fresh market data."
 
     useEffect(() => {
-        if (!triggerRef.current || !lettersRef.current.length) return;
-
+        if (!triggerRef.current || !wordRefs.current.length) return;
         if (window.innerWidth < 1560) return;
 
+        gsap.set(wordRefs.current, { color: "#FFFFFF33" });
+
         // timeline that reveals color across characters; progress is driven by ScrollTrigger
-        const reveal = gsap.to(lettersRef.current, {
-            color: "white",
-            stagger: 0.05,
+        const reveal = gsap.to(wordRefs.current, {
+            color: "#FFFFFF",
+            stagger: 0.2,
             ease: "none",
             paused: true
         });
@@ -36,8 +37,8 @@ function HowItWorks() {
             trigger: triggerRef.current,
             start: "top 100px", // same breathing room as cards
             end: () => {
-                const perChar = 22; // px of scroll per character
-                return "+=" + Math.max(window.innerHeight * 0.8, lettersRef.current.length * perChar);
+                const perWord = 120; // px of scroll per word (tune to taste)
+                return "+=" + Math.max(window.innerHeight * 0.8, wordRefs.current.length * perWord);
             },
             pin: true,
             scrub: true,
@@ -204,10 +205,12 @@ function HowItWorks() {
                 </div>
 
                 <div ref={triggerRef} className="work-moto">
-                    {text.split("").map((letter, index) => (
-                        <span key={index} ref={setlettersRef}>
-                            {letter}
-                        </span>
+                    {text.split(" ").map((word, i) => (
+                        <React.Fragment key={i}>
+                            <span className="moto-word" ref={setWordRef}>
+                                {word}
+                            </span>{" "}
+                        </React.Fragment>
                     ))}
                 </div>
                 {/* World changes — and your plan changes with it. Our AI constantly adjusts your roadmap and tasks based on your results and fresh market data. */}

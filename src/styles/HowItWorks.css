@@ -215,6 +215,13 @@
     margin-top: 75px;
 }
 
+.work-moto .moto-word {
+    color: #ffffff33;
+    /* start faded */
+    will-change: color;
+    display: inline-block;
+}
+
 @media(max-width: 1560px) {
     .works {
         height: auto;
