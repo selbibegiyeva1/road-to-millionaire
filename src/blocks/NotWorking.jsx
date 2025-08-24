@@ -50,44 +50,55 @@ function NotWorking() {
                 force3D: true
             });
 
-            const tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: stickyRef.current,        // CHANGED: pin wrapper (heading + block)
-                    start: "top 50px",
-                    end: () =>
-                        "+=" + Math.max(window.innerHeight * 0.5, points.length * 350),
-                    pin: true,
-                    scrub: true,
-                    anticipatePin: 1
-                }
-            });
+            const REVEAL_DUR = 0.50;  // how long each point animates in
+            const HOLD_DUR = 1.75;  // how long each point "rests" before the next one
+            const PX_PER_SEC = 520;   // scroll pixels per 1s of timeline duration
 
-            const denom = Math.max(1, points.length - 1);
-            points.forEach((el, i) => {
-                tl.to(
-                    el,
-                    {
-                        autoAlpha: 1,
-                        scale: 1,
-                        filter: "blur(0px)",
-                        duration: 0.45,          // ⏩ faster
-                        ease: "power2.out"       // ⏩ cleaner snap
-                    },
-                    i * 0.15                   // ⏩ overlap earlier instead of spacing evenly
-                );
+            const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
+
+            points.forEach((el) => {
+                // reveal
+                tl.to(el, {
+                    autoAlpha: 1,
+                    scale: 1,
+                    y: 0,
+                    filter: "blur(0px)",
+                    duration: REVEAL_DUR
+                });
+                // spacer = visual "pause" while scrubbing
+                tl.to({}, { duration: HOLD_DUR, ease: "none" });
             });
 
             if (revealEl) {
                 gsap.set(revealEl, { "--reveal": "0%", opacity: 0 });
-
-                tl.add("pointsDone", 1);
                 tl.to(revealEl, {
                     "--reveal": "100%",
-                    opacity: 1,           // fade up too
+                    opacity: 1,
                     ease: "none",
                     duration: 1
-                }, "pointsDone");
+                });
             }
+
+            // Now wire the timeline to scroll and size the range to its duration
+            const st = ScrollTrigger.create({
+                trigger: stickyRef.current,
+                start: "top 50px",
+                end: () => "+=" + Math.round(tl.duration() * PX_PER_SEC),
+                pin: true,
+                scrub: true,
+                anticipatePin: 1,
+                animation: tl
+            });
+
+            const onResize = () => st.refresh();
+            window.addEventListener("resize", onResize);
+
+            // cleanup
+            return () => {
+                window.removeEventListener("resize", onResize);
+                st.kill();
+                tl.kill();
+            };
         }, stickyRef);
 
         return () => ctx.revert();
