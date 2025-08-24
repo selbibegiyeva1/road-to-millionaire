@@ -43,9 +43,11 @@ function NotWorking() {
 
             gsap.set(points, {
                 autoAlpha: 0,
-                y: 16,
-                scale: 0.98,
-                willChange: "transform, opacity"
+                scale: 0.85,
+                y: 0,
+                transformOrigin: "50% 50%",
+                willChange: "transform, opacity, filter",
+                force3D: true
             });
 
             const tl = gsap.timeline({
@@ -53,7 +55,7 @@ function NotWorking() {
                     trigger: stickyRef.current,        // CHANGED: pin wrapper (heading + block)
                     start: "top 50px",
                     end: () =>
-                        "+=" + Math.max(window.innerHeight * 0.8, points.length * 600),
+                        "+=" + Math.max(window.innerHeight * 0.5, points.length * 350),
                     pin: true,
                     scrub: true,
                     anticipatePin: 1
@@ -64,8 +66,14 @@ function NotWorking() {
             points.forEach((el, i) => {
                 tl.to(
                     el,
-                    { autoAlpha: 1, y: 0, scale: 1, duration: 1, ease: "power1.out" },
-                    i / denom
+                    {
+                        autoAlpha: 1,
+                        scale: 1,
+                        filter: "blur(0px)",
+                        duration: 0.45,          // ⏩ faster
+                        ease: "power2.out"       // ⏩ cleaner snap
+                    },
+                    i * 0.15                   // ⏩ overlap earlier instead of spacing evenly
                 );
             });
 
