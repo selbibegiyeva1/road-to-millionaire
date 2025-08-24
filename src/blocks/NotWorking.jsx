@@ -82,7 +82,7 @@ function NotWorking() {
             // Now wire the timeline to scroll and size the range to its duration
             const st = ScrollTrigger.create({
                 trigger: stickyRef.current,
-                start: "top 50px",
+                start: "top 100px",
                 end: () => "+=" + Math.round(tl.duration() * PX_PER_SEC),
                 pin: true,
                 scrub: true,
