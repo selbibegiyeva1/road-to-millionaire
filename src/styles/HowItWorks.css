@@ -4,7 +4,7 @@
 
 .how-it-works-block {
     margin: 0px auto 0px auto;
-    max-width: 1321px;
+    max-width: 1260px;
 }
 
 .blockHead.worksHead {
@@ -17,6 +17,7 @@
     margin-top: 50px;
     border-radius: 36px;
     height: 700px;
+    width: 100%;
 }
 
 .works::-webkit-scrollbar {
@@ -109,8 +110,8 @@
 }
 
 .work-block-head {
-    font-size: 64px;
-    line-height: 64px;
+    font-size: 62px;
+    line-height: 62px;
     letter-spacing: -3%;
     font-weight: 600;
     max-width: 380px;
@@ -209,9 +210,9 @@
 
 .work-moto {
     color: #FFFFFF33;
-    font-size: 88px;
+    font-size: 62px;
     font-weight: 600;
-    line-height: 88px;
+    line-height: 62px;
     margin-top: 75px;
 }
 

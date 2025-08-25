@@ -20,7 +20,7 @@ function NotWorking() {
     // Top sticky: pin heading + not-working-block together
     useLayoutEffect(() => {
         if (!stickyRef.current || !blockRef.current) return;
-        if (window.innerWidth < 1560) return;
+        if (window.innerWidth < 1200) return;
 
         const ctx = gsap.context(() => {
             // NEW: prepare the heading for masking
@@ -107,7 +107,7 @@ function NotWorking() {
     // Bottom-head sticky word-by-word (keep your exact markup)
     useLayoutEffect(() => {
         if (!bottomRef.current) return;
-        if (window.innerWidth < 1560) return;
+        if (window.innerWidth < 1200) return;
 
         const wrapWordsPreserveSpans = (root) => {
             const walker = document.createTreeWalker(
@@ -200,7 +200,7 @@ function NotWorking() {
                 <center>
                     <div className="not-working-block" ref={blockRef}>
                         <div className='not-work-head'>
-                            <p>It’s not working</p>
+                            <p id="notHead">It’s not working</p>
                         </div>
                         <div className="not-work-point point-one">
                             <span>Wait for the perfect moment and a genius idea</span>
