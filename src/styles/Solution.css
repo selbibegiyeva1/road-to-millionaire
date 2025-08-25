@@ -4,7 +4,7 @@
 
 .solutionBlock {
     margin: 0px auto 0px auto;
-    max-width: 1321px;
+    max-width: 1260px;
 }
 
 .blockHead.solutionHead {
@@ -22,11 +22,11 @@
     break-inside: avoid;
     border-radius: 36px;
     margin-bottom: 33px;
-    padding: 50px;
+    padding: 40px;
     height: 372.6666564941406px;
-    font-size: 48px;
+    font-size: 38px;
     font-weight: 600;
-    line-height: 48px;
+    line-height: 38px;
 }
 
 .solutionGrid div p {
@@ -66,7 +66,7 @@
 
 .solutionGrid2 {
     display: grid;
-    max-width: 1321px;
+    max-width: 1260px;
     grid-template-columns: repeat(3, 1fr);
     gap: 32px;
     margin: auto;
@@ -87,7 +87,7 @@
     font-weight: 600;
 }
 
-@media(max-width: 1440px) {
+@media(max-width: 1024px) {
     .solutionGrid {
         columns: 1;
     }

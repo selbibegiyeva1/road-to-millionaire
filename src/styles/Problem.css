@@ -4,7 +4,7 @@
 
 .problemBlock {
     margin: 0px auto 0px auto;
-    max-width: 1321px;
+    max-width: 1260px;
 }
 
 .blockSub {
@@ -14,10 +14,10 @@
 }
 
 .blockHead {
-    font-size: 72px;
+    font-size: 62px;
     font-weight: 600;
     max-width: 1000px;
-    line-height: 72px;
+    line-height: 62px;
     margin-top: 20px;
     letter-spacing: -3%;
 }
@@ -26,7 +26,7 @@
     display: grid;
     margin-top: 50px;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: auto 670px;
+    grid-template-rows: auto 600px;
     gap: 40px;
 }
 
@@ -167,10 +167,10 @@
 .issueHead {
     z-index: 2;
     margin-top: 25px;
-    font-size: 60px;
+    font-size: 48px;
     font-weight: 600;
     max-width: 720px;
-    line-height: 60px;
+    line-height: 48px;
 }
 
 .issueHead.issueHeadTwo {

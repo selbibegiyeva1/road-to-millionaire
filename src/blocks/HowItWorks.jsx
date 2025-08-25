@@ -21,7 +21,7 @@ function HowItWorks() {
 
     useEffect(() => {
         if (!triggerRef.current || !wordRefs.current.length) return;
-        if (window.innerWidth < 1560) return;
+        if (window.innerWidth < 1200) return;
 
         gsap.set(wordRefs.current, { color: "#FFFFFF33" });
 
@@ -35,7 +35,7 @@ function HowItWorks() {
 
         const st = ScrollTrigger.create({
             trigger: triggerRef.current,
-            start: "top 100px", // same breathing room as cards
+            start: "top 300px", // same breathing room as cards
             end: () => {
                 const perWord = 120; // px of scroll per word (tune to taste)
                 return "+=" + Math.max(window.innerHeight * 0.8, wordRefs.current.length * perWord);
@@ -55,7 +55,7 @@ function HowItWorks() {
     useLayoutEffect(() => {
         if (!worksRef.current) return;
 
-        if (window.innerWidth < 1560) return;
+        if (window.innerWidth < 1200) return;
 
         const ctx = gsap.context(() => {
             const cards = gsap.utils.toArray(".works .work");
@@ -204,7 +204,7 @@ function HowItWorks() {
                     </div>
                 </div>
 
-                <div ref={triggerRef} className="work-moto">
+                <div ref={triggerRef} className="work-moto" style={{ maxWidth: 1000 }}>
                     {text.split(" ").map((word, i) => (
                         <React.Fragment key={i}>
                             <span className="moto-word" ref={setWordRef}>
