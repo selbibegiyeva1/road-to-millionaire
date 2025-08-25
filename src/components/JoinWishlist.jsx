@@ -52,7 +52,7 @@ function JoinWishlist({ effect, click }) {
 
         try {
             setLoading(true);
-            const res = await fetch(import.meta.env.VITE_API_URL, {
+            const res = await fetch("https://n8n.unite-venture.com/webhook/waitlist", {
                 method: "POST",
                 // DO NOT set headers here; let the browser set multipart/form-data
                 body: fd,
