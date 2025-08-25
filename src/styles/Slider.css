@@ -9,8 +9,8 @@
     color: #fff;
 }
 
-.slider-wrap:hover .slide p, 
-.slider-wrap:hover .slide svg path {
+.slider-track:hover .slide p, 
+.slider-track:hover .slide svg path {
     color: #A594FD;
     fill: #A594FD;
 }
