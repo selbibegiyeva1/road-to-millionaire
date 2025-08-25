@@ -17,7 +17,7 @@ function NotWorking() {
     const blockRef = useRef(null);  // keep: used for querying points
     const bottomRef = useRef(null);
 
-    // Top sticky: pin heading + not-working-block together
+    // Top sticky: pin heading + not-working-block
     useLayoutEffect(() => {
         if (!stickyRef.current || !blockRef.current) return;
         if (window.innerWidth < 1560) return;
