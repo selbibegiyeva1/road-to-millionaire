@@ -9,7 +9,7 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 
 function JoinWishlist({ effect, click }) {
     return (
-        <div className={effect ? "JoinWishlist show" : "JoinWishlist"}>
+        <div className={effect ? "JoinWishlist show" : "JoinWishlist"} data-lenis-prevent>
             <button className='close' onClick={click}>
                 <i><MdOutlineCancel /></i>
             </button>

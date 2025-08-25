@@ -3,6 +3,10 @@
     opacity: 0;
     pointer-events: none;
     overflow: auto;
+    overscroll-behavior: contain;
+    /* keeps wheel/touch from bubbling out */
+    -webkit-overflow-scrolling: touch;
+    /* iOS smooth native scrolling */
     top: 0%;
     left: 0%;
     width: 100%;

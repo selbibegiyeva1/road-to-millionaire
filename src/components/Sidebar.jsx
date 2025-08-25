@@ -10,7 +10,7 @@ import { Link } from 'react-router';
 
 function Sidebar({ sidebar, show, click }) {
     return (
-        <div className={show ? "Sidebar show" : "Sidebar"}>
+        <div className={show ? "Sidebar show" : "Sidebar"} data-lenis-prevent>
             <div>
                 <header>
                     <a href="#" className="logo">
